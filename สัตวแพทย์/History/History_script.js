@@ -26,3 +26,10 @@ function toggleMenu() {
         dropdownMenu.classList.toggle("show");
     }
 }
+document.addEventListener("DOMContentLoaded", function() {
+    var doctorName = localStorage.getItem('doctorname');
+    var doctornameElement = document.getElementById("doctorname");
+    if (doctornameElement && doctorName) {
+        doctornameElement.textContent = doctorName;
+    }
+});
