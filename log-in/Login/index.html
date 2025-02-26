@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="./log.css">
+</head>
+<body>
+    <div class="area">
+        <div class="con">
+            <div class="left">
+                <img src="./img/LOGO.png">
+            </div>
+            <div class="right">
+                <div class="right-box">
+                    <div class="logo">
+                        <span class="light">Queu</span><span class="bold">Paw</span><sup>®</sup>
+                    </div>
+                    <div class="inp">Email<br>
+                        <input type="email" id="email" placeholder="Enter your Email :">
+                    </div>
+                    <div class="inp">Password<br>
+                        <input type="password" id="password" placeholder="Enter your Password :">
+                    </div>
+                    <div class="btn">
+                        <button class="log-in" onclick="login()">เข้าสู่ระบบ</button>
+                        <button class="register" onclick="window.location.href='../Register/Register.html'">ลงทะเบียน</button>
+                        <button class="ForgotPassword" onclick="window.location.href='../ForgotPassword/index.html'">ลืมรหัสผ่าน</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="login_script.js"></script>
+    <script>
+        function register() {
+            let email = document.getElementById("register-email").value;
+            let password = document.getElementById("register-password").value;
+
+            localStorage.setItem("registeredemail", email);
+            localStorage.setItem("registeredpassword", password);
+
+            alert("Registration successful");
+            window.location.href = "../Login/index.html";
+        }
+    </script>
+</body>
+</html>

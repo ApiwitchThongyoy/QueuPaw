@@ -1,0 +1,277 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #a8dced;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+.header {
+  position: fixed;
+  width: 100%;
+  height: 70px; 
+  display: flex;
+  align-items: center;
+  background-color: #a8dced;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0 20px;
+  top: 0;
+  justify-content: space-around;
+}
+.header img {
+  height: 50px; 
+}
+li{
+  list-style: none;
+  display: inline-block;
+}
+li a{
+  color: #02203A;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 25px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 5px;
+  border-radius: 25px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  margin-left: -50px;
+  margin-top: 30px;
+  width: 40%;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 25px;
+  width: 90%;
+}
+
+.search-bar button {
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 15px;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #0056b3;
+}
+
+.container{
+  margin: 12%;
+}
+
+.container-grid{
+  display: grid;
+  gap: 25px;
+  
+}
+
+.item{
+  background: white;
+  height: fit-content;
+  padding-bottom: 2.5rem;
+  padding-top: 1rem;
+  padding-right: 5rem;
+  padding-left: 1rem;
+  width: 550px;
+  margin: auto;
+  border-radius: 20px;
+  display: grid;
+  place-content: start;
+}
+
+a {
+  text-decoration: none;
+}
+.profile-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #007bff;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  width: 180px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.dropdown-menu a:last-child {
+  border-bottom: none;
+  color: red;
+}
+
+.dropdown-menu a:hover {
+  background: #f1f1f1;
+}
+.profile-menu:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.img{ /*รูปในกรอบ*/
+  width:200px;
+  height:auto;
+  border-radius: 20px;
+}
+.title_Thai{ /*ชื่อภาษาไทย*/
+  font-size: 24px;
+  margin-left: 240px;
+  margin-top: -150px;
+  color: #02203A;
+}
+.title_Eng{ /*ชื่อภาษาอังกฤษ*/
+  font-size: 20px;
+  margin-left: 240px;
+  margin-top: -120px;
+  color: #02203A;
+}
+.rate{  /*การให้คะแนน*/
+  font-size: 16px;
+  margin-left: 240px;
+  margin-top: -65px;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact{ /*ช่องทางการติดต่อ*/
+    font-size: 18px;
+    margin-left: -235px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #02203A;
+}
+.rate_number{ /*เรทคะแนน*/
+  font-size: 14px;
+  color: #02203A;
+}
+.button{
+    background: red; 
+    color: white; 
+    border: none; 
+    padding: 10px 35px;
+    font-size: 28px;
+    border-radius: 5px; 
+    cursor: pointer;
+    margin-left:12rem; 
+    position: absolute;
+    margin-top: -3rem;
+    
+}
+.Time{
+  font-size: 14px;
+  margin-left: 240px;
+  margin-top: -85px;
+  color: #02203A;
+}
+.rate_History{
+    display: flex;
+    font-size: 16px;
+    margin-left: 240px;
+    margin-top: -85px;
+    flex-direction: column;
+    gap: 5px;
+}
+.button_rate{
+  background: red; 
+    color: white; 
+    border: none; 
+    padding: 10px 35px;
+    font-size: 28px;
+    border-radius: 5px; 
+    cursor: pointer;
+    margin-left:10rem; 
+    position: absolute;
+    margin-top: -60px;
+}
+
+.rate_star{
+  font-size: 45px;
+  margin-left: -220px;
+  margin-top: 60px;
+}
+.appointment-card {
+  display: flex;
+  background: white;
+  border-radius: 15px;
+  padding: 150px;
+  width: 400px;
+  height: 100px;
+  text-align: center;
+  border: 5px solid #2a72b8;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  margin-left: 400px;
+  margin-top: 200px;
+}
+
+.clinic-logo {
+  width: 50px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.cancel-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  width: 395px;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 230px;
+  margin-left: -450px;
+}
+
+.cancel-btn:hover {
+  background-color: darkred;
+}
+.appointment_font{
+  font-size: 24px;
+  margin-top: -100px;
+  margin-left: -40px;
+}

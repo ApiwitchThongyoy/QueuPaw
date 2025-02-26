@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="History_styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="History_script.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <img src="../Main/img/LOGO.png" alt=""/>
+        </div>
+            <div class="search-bar">
+                <input type="text" placeholder="ค้นหา...">
+                <button>
+                    <i class='bx bx-search-alt-2' ></i>
+                </button>
+            </div>
+            <ul>
+                <li><a href="/User/Main/Main.html">หน้าหลัก</a></li>
+                <li><a href="/User/Appointment/Appointment.html">การนัดหมาย</a></li>
+                <li><a href="/User/History/History.html">ประวัติการจอง</a></li>
+                <div class="profile-menu">
+                <img src="../Main/img/Icon User.png" alt="User" class="profile-icon" onclick="toggleMenu()">
+                    <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#" id="username">xxxx xxxxx</a>
+                    <a href="./Profile.html">โปรไฟล์</a>
+                    <a href="../Login/index.html">ออกจากระบบ</a>
+                </div>
+            </ul>
+        </div>
+    </div> 
+    <div class="container">
+        <h2>ประวัติการจอง</h2>
+        <div class="history-list" id="historyList">
+            <!-- Booking history entries will be appended here -->
+        </div>
+    </div>
+</body>
+</html>
