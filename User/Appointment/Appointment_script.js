@@ -6,19 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function toggleMenu() {
-    var dropdownMenu = document.getElementById("dropdownMenu");
-    if (dropdownMenu) {
-        dropdownMenu.classList.toggle("show");
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch booking information from localStorage
     const bookingInfo = JSON.parse(localStorage.getItem('bookingInfo')) || {};
 
     // Set the values of the appointment details
-    document.getElementById('username').textContent = bookingInfo.username || 'N/A';
     document.getElementById('clinicName').textContent = bookingInfo.clinicName || 'N/A';
     document.getElementById('reason').textContent = bookingInfo.reason || 'N/A';
     document.getElementById('date').textContent = bookingInfo.date || 'N/A';
@@ -26,22 +18,61 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('time').textContent = bookingInfo.time || 'N/A';
 });
 
+function confirmBooking() {
+    const clinicName = document.getElementById('clinicName').textContent;
+    const reason = document.getElementById('reason').textContent;
+    const date = document.getElementById('date').textContent;
+    const animalType = document.getElementById('animalType').textContent;
+    const time = document.getElementById('time').textContent;
+
+    const bookingInfo = {
+        clinicName,
+        reason,
+        date,
+        animalType,
+        time,
+        status: "confirmed"
+    };
+
+    let history = JSON.parse(localStorage.getItem('history')) || [];
+    history.push(bookingInfo);
+    localStorage.setItem('history', JSON.stringify(history));
+
+    alert("การจองสำเร็จ");
+    window.location.href = "../../สัตวแพทย์/History/History.html";
+}
+
 function cancelBooking() {
-    // Fetch booking information from localStorage
-    const bookingInfo = JSON.parse(localStorage.getItem('bookingInfo')) || {};
+    const cancelReason = prompt("กรุณากรอกเหตุผลในการยกเลิก:");
+    if (cancelReason) {
+        const clinicName = document.getElementById('clinicName').textContent;
+        const reason = document.getElementById('reason').textContent;
+        const date = document.getElementById('date').textContent;
+        const animalType = document.getElementById('animalType').textContent;
+        const time = document.getElementById('time').textContent;
 
-    // Fetch existing canceled bookings from localStorage
-    const canceledBookings = JSON.parse(localStorage.getItem('canceledBookings')) || [];
+        const bookingInfo = {
+            clinicName,
+            reason,
+            date,
+            animalType,
+            time,
+            status: "cancelled",
+            cancelReason
+        };
 
-    // Add the current booking to the canceled bookings
-    canceledBookings.push(bookingInfo);
+        let history = JSON.parse(localStorage.getItem('history')) || [];
+        history.push(bookingInfo);
+        localStorage.setItem('history', JSON.stringify(history));
 
-    // Store the updated canceled bookings in localStorage
-    localStorage.setItem('canceledBookings', JSON.stringify(canceledBookings));
+        alert("การจองถูกยกเลิก");
+        window.location.href = "../../User/History/History.html";
+    }
+}
 
-    // Clear booking information from localStorage
-    localStorage.removeItem('bookingInfo');
-
-    alert('การจองถูกยกเลิกแล้ว');
-    window.location.href = "../History/History.html"; // Redirect to History.html
+function toggleMenu() {
+    var dropdownMenu = document.getElementById("dropdownMenu");
+    if (dropdownMenu) {
+        dropdownMenu.classList.toggle("show");
+    }
 }

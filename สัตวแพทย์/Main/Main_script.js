@@ -25,8 +25,34 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         `;
         appointmentsContainer.appendChild(appointmentDiv);
+
+        // Add event listeners to the buttons
+        appointmentDiv.querySelector('.confirm').addEventListener('click', function() {
+            saveBooking(bookingInfo, "confirmed");
+        });
+        appointmentDiv.querySelector('.cancel').addEventListener('click', function() {
+            const cancelReason = prompt("กรุณากรอกเหตุผลในการยกเลิก:");
+            if (cancelReason) {
+                bookingInfo.cancelReason = cancelReason;
+                saveBooking(bookingInfo, "cancelled");
+            }
+        });
     }
 });
+
+function saveBooking(bookingInfo, status) {
+    bookingInfo.status = status;
+    let history = JSON.parse(localStorage.getItem('history')) || [];
+    history.push(bookingInfo);
+    localStorage.setItem('history', JSON.stringify(history));
+
+    if (status === "confirmed") {
+        alert("การการรักษาสำเร็จ");
+    } else {
+        alert("การจองคิวถูกยกเลิก");
+    }
+    window.location.href = "../../สัตวแพทย์/History/History.html";
+}
 
 function toggleMenu() {
     var dropdownMenu = document.getElementById("dropdownMenu");
