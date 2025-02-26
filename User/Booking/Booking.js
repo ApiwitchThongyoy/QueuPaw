@@ -1,4 +1,5 @@
 function validateForm() {
+    const name = document.getElementById('name').value;
     const reason = document.getElementById('reason').value;
     const date = document.getElementById('date').value;
     const clinicName = document.getElementById('clinicName').value;
@@ -11,6 +12,7 @@ function validateForm() {
     }
 
     const bookingInfo = {
+        username: name,
         clinicName,
         reason,
         date,
