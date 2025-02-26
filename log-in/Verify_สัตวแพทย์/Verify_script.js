@@ -95,7 +95,7 @@ function register() {
 
         console.log("All fields are valid");
         alert("สมัครสําเร็จ");
-        window.location.href = "../Main_สัตวแพทย์/Main.html";
+        window.location.href = "../../สัตวแพทย์/Main/Main.html";
     } catch (error) {
         console.error("An error occurred during registration:", error);
         alert("เกิดข้อผิดพลาดขณะสมัคร");
