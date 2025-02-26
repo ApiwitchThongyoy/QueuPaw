@@ -51,6 +51,13 @@ function validatePassword() {
         errorPassword.innerText = "กรุณากรอกรหัสผ่านให้ถูกต้อง";
     }
 }
+function sendOtp() {
+    const email = document.getElementById("email").value;
+    const otp = Math.floor(100000 + Math.random() * 900000); // Generate a 6-digit OTP
+    console.log("Email:", email); // Display email in the console
+    console.log("OTP:", otp); // Display OTP in the console
+    alert("OTP ถูกส่งไปยังอีเมลของคุณแล้ว");
+}
 
 function register(event) {
     event.preventDefault(); // Prevent form submission
