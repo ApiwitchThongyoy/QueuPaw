@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         card.innerHTML = `
             <div class="history-details">
-                <img src="../Main_บุคคลทั่วไป/img/Hospital.jpeg" alt="Hospital" class="clinic-image">
+                <img src="./img/Hospital.jpeg" alt="Hospital" class="clinic-image">
                 <p><strong>ชื่อคลินิก:</strong> <span>${bookingInfo.clinicName || 'N/A'}</span></p>
                 <p><strong>สาเหตุ/อาการ:</strong> <span>${bookingInfo.reason || 'N/A'}</span></p>
                 <p><strong>วันที่:</strong> <span>${bookingInfo.date || 'N/A'}</span></p>
@@ -71,5 +71,5 @@ function rebook(clinicName) {
     localStorage.setItem('rebookClinicName', clinicName);
 
     // Redirect to Booking.html for rebooking
-    window.location.href = "Booking.html";
+    window.location.href = "../Booking/Booking.html";
 }

@@ -12,3 +12,14 @@ function toggleMenu() {
         dropdownMenu.classList.toggle("show");
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch booking information from localStorage
+    const bookingInfo = JSON.parse(localStorage.getItem('bookingInfo')) || {};
+
+    // Set the values of the appointment details
+    document.getElementById('clinicName').textContent = bookingInfo.clinicName || 'N/A';
+    document.getElementById('reason').textContent = bookingInfo.reason || 'N/A';
+    document.getElementById('date').textContent = bookingInfo.date || 'N/A';
+    document.getElementById('animalType').textContent = bookingInfo.animalType || 'N/A';
+    document.getElementById('time').textContent = bookingInfo.time || 'N/A';
+});

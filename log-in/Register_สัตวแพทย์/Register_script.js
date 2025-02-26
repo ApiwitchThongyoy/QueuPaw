@@ -83,7 +83,7 @@ function register() {
     try {
         localStorage.setItem('doctorname', name)
         alert("กรุณาทำขั้นตอนถัดไป");
-        window.location.href = "../Verify_สัตวแพทย์/verify.html";
+        window.location.href = "../verify_สัตวแพทย์/verify.html";
     } catch (error) {
         alert("เกิดข้อผิดพลาด: " + error.message);
     }

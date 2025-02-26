@@ -12,7 +12,7 @@
 <body>
     <div class="header">
         <div>
-            <img src="../Main_บุคคลทั่วไป/img/LOGO.png" alt=""/>
+            <img src="img/LOGO.png" alt="">
         </div>
             <div class="search-bar">
                 <input type="text" placeholder="ค้นหา...">
@@ -21,15 +21,20 @@
                 </button>
             </div>
         <ul>
-            <li><a href="Main.html">หน้าหลัก</a></li>
-            <li><a href="Appointment.html">การนัดหมาย</a></li>
-            <li><a href="History.html">ประวัติการจอง</a></li>
+            <li><a href="../Main/Main.html">หน้าหลัก</a></li>
+            <li><a href="../Appointment/Appointment.html">การนัดหมาย</a></li>
+            <li><a href="./History.html">ประวัติการจอง</a></li>
             <div class="profile-menu">
-                <img src="../Main_บุคคลทั่วไป/img/Icon User.png" alt="User" class="profile-icon" onclick="toggleMenu()">
+                <img src="img/Icon User.png" alt="User" class="profile-icon" onclick="toggleMenu()">
                 <div class="dropdown-menu" id="dropdownMenu">
                     <a href="#" id="username">xxxx xxxxx</a>
+<<<<<<< HEAD
                     <a href="../profile_บุคคลทั่วไป/index.html">โปรไฟล์</a>
                     <a href="/log-in/Login/index.html">ออกจากระบบ</a>
+=======
+                    <a href="../profile_บุคคลทั่วไป/Profile.html">โปรไฟล์</a>
+                    <a href="../Login/index.html">ออกจากระบบ</a>
+>>>>>>> 514b48bc4518f4411c82f0c594bcf4cfe62dd190
                 </div>
             </div>
         </ul>
@@ -37,7 +42,7 @@
     <div class="container">
         <div class="booking-content">
             <div class="image-container">
-                <img src="../Main_บุคคลทั่วไป/img/Hospital.jpeg" alt="Hospital">
+                <img src="./img/Hospital.jpeg" alt="Hospital">
             </div>
             <div class="form-container">
                 <form id="bookingForm" onsubmit="return validateForm()">

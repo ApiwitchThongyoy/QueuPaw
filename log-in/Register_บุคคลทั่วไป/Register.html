@@ -17,7 +17,7 @@
     </div>
 
     <div class="container">
-        <form>
+        <form id="registerForm" onsubmit="register(event)">
             <legend>
                 <label class="Email">E-mail</label>
             </legend>
@@ -45,10 +45,9 @@
 
             <input class="textbox" type="text" id="number" placeholder="Enter your Phone number :" oninput="validateNumber()">
             <small id="numberError" class="error-number"></small>
+            
+            <button class="button" type="submit">ยืนยัน</button>
         </form>
-
-        <button class="button" onclick="register()">ยืนยัน</button>
-
     </div>
 
     <button class="back-button" onclick="window.history.back();">⬅ </button>

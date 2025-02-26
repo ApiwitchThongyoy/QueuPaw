@@ -48,8 +48,8 @@ function verifyOTP() {
     const otpInput = document.getElementById('otpInput').value;
 
     if (otpInput == generatedOTP) {
-        alert("เปลี่ยนรหัสผ่านเสร็จสิ้น");
-        window.location.href = "../Login/index.html"; // Redirect to login page
+        alert("OTP verified successfully.");
+        window.location.href = "../ResetPassword/Reset.html"; // Redirect to login page
     } else {
         alert("Invalid OTP. Please try again.");
     }
