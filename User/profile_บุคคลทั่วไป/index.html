@@ -10,7 +10,7 @@
 <body>
     <div class="header">
         <div>
-            <img src="../Main_บุคคลทั่วไป/img/LOGO.png" alt=""/>
+            <img src="../profile_บุคคลทั่วไป/img/LOGO.png" alt=""/>
         </div>
             <div class="search-bar">
                 <input type="text" placeholder="ค้นหา...">
@@ -19,19 +19,37 @@
                 </button>
             </div>
             <ul>
-                <li><a href="Main.html">หน้าหลัก</a></li>
-                <li><a href="Appointment.html">การนัดหมาย</a></li>
-                <li><a href="History.html">ประวัติการจอง</a></li>
+                <li><a href="/User/Main/Main.html">หน้าหลัก</a></li>
+                <li><a href="/User/Appointment/Appointment.html">การนัดหมาย</a></li>
+                <li><a href="/User/History/History.html">ประวัติการจอง</a></li>
                 <div class="profile-menu">
-                    <img src="../Main_บุคคลทั่วไป/img/Icon User.png" alt="User" class="profile-icon" onclick="toggleMenu()">
+                    <img src="../profile_บุคคลทั่วไป/img/Icon User.png" alt="User" class="profile-icon" onclick="toggleMenu()">
                 <div class="dropdown-menu" id="dropdownMenu">
                     <a href="#" id="username">xxxx xxxxx</a>
-                    <a href="./Profile.html">โปรไฟล์</a>
-                    <a href="../Login/index.html">ออกจากระบบ</a>
+                    <a href="../profile_บุคคลทั่วไป/index.html">โปรไฟล์</a>
+                    <a href="/log-in/Login/index.html">ออกจากระบบ</a>
                 </div>
             </ul>
         </div>
     </div> 
+
+    <div class="container">
+        <div class="container-grid">
+            <div class="item">
+                <img class="img" src="../profile_บุคคลทั่วไป/img/Icon User.png" alt="">
+                <div class="text">
+                    <div>Name : xxxxxxxxxxxxx </div>
+                    <div>E-Mail : xxxxxxxxxxx@xxxxxxx</div>
+                    <div>Number : xxx-xxx-xxxxx</div>
+                    <div>
+                        <button class="button">แก้ไขข้อมูล</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
 </body>
 </html>

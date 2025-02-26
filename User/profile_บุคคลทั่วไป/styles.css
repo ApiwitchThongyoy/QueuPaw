@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    overflow: hidden;
     
 }
 .header {
@@ -120,4 +121,52 @@ a {
 
 .search-container button:hover {
   background: #0056b3;
+}
+.container{
+  margin: 12%;
+}
+.container-grid{
+  display: grid;
+  gap: 25px;
+  
+}
+.item{
+  background: white;
+  height: fit-content;
+  padding-bottom: 2.5rem;
+  padding-top: 10px;
+  padding-right: 5rem;
+  padding-left: 1rem;
+  width: 650px;
+  margin: auto;
+  border-radius: 20px;
+  display: grid;
+  place-content: start;
+  height: 400px;
+}
+.img{ /*รูปในกรอบ*/
+  width:200px;
+  height:auto;
+  border-radius: 20px;
+}
+.text {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 50px;
+  color: #02203A;
+  font-size: 22px;
+  margin-top: -150px;
+  margin-left: 300px;
+}
+.button{
+  background: red; 
+  color: white; 
+  border: none; 
+  padding: 10px 35px;
+  font-size: 28px;
+  border-radius: 5px; 
+  cursor: pointer;
+  margin-left:12rem; 
+  position: absolute;
+  margin-top: 5rem; 
 }
