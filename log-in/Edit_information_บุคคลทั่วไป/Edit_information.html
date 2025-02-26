@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บุคคลทั่วไป</title>
+    <link rel="stylesheet" href="Edit_information.css">
+</head>
+<body>
+    
+    <div class="profile-container">
+        <div>
+            <img src="./img/Icon User.png" alt="">
+        </div>
+        <input type="file" id="fileInput" class="upload-input" accept="image/*" onchange="previewImage(event)">
+    </div>
+
+    <div class="container">
+        <form id="registerForm" onsubmit="register(event)">
+            <legend>
+                <label class="Email">อีเมล</label>
+            </legend>
+
+            <input class="textbox" type="email" id="email" placeholder="กรุณากรอกอีเมลของคุณ :" oninput="validateEmail()">
+            <small id="emailError" class="error-email"></small>
+            <button type="button" class="OTP-button" onclick="sendOtp()">ส่ง OTP</button>
+            <legend>
+                <label for="otp">OTP</label>
+            </legend>
+
+            <input class="textbox" type="text" id="otp" placeholder="กรุณากรอก OTP ของคุณ :" oninput="validateOtp()">
+            <small id="otpError" class="error-otp"></small>
+            
+            <legend>
+                <label for="Password">รหัสผ่าน</label>
+            </legend>
+
+            <input class="textbox" type="password" id="password" placeholder="กรุณากรอกรหัสผ่านของคุณ :" oninput="validatePassword()">
+            <small id="passwordError" class="error-password"></small>
+            
+            <legend>
+                <label class="Name">ชื่อ</label>
+            </legend>
+
+            <input class="textbox" type="text" id="name" placeholder="กรุณากรอกชื่อของคุณ :" oninput="validateName()">
+            <small id="nameError" class="error-name"></small>
+            
+            <legend>
+                <label class="Number">เบอร์โทรศัพท์</label>
+            </legend>
+
+            <input class="textbox" type="text" id="number" placeholder="กรุณากรอกเบอร์โทรศัพท์ของคุณ:" oninput="validateNumber()">
+            <small id="numberError" class="error-number"></small>
+            
+            <button class="button" type="submit">ยืนยันการแก้ไข</button>
+        </form>
+    </div>
+
+    <button class="back-button" onclick="window.history.back();">⬅ </button>
+
+    <script src="Edit_information.js"></script>
+
+</body>
+</html>
