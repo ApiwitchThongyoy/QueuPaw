@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const bookingInfo = JSON.parse(localStorage.getItem('bookingInfo')) || {};
 
     // Set the values of the appointment details
+    document.getElementById('username').textContent = bookingInfo.username || 'N/A';
     document.getElementById('clinicName').textContent = bookingInfo.clinicName || 'N/A';
     document.getElementById('reason').textContent = bookingInfo.reason || 'N/A';
     document.getElementById('date').textContent = bookingInfo.date || 'N/A';
