@@ -9,20 +9,31 @@ function validateWorking() {
         inputWorking.style.border = "2px solid red";
         errorWorking.innerText = "กรุณากรอกชื่อโรงพยาบาลหรือคลินิกให้ถูกต้อง";
     }
-} 
+}
 
 function validateLicense() {
     let inputLicense = document.getElementById("license");
     let errorLicense = document.getElementById("licenseError");
-    let licensePattern = /^[0-9]{5}$/;
-    if (licensePattern.test(inputLicense.value) || inputLicense.value === "") {
-        inputLicense.style.border = "1px solid green";
-        errorLicense.innerText = "";
-    } else {
-        inputLicense.style.border = "2px solid red";
-        errorLicense.innerText = "กรุณากรอกเลขที่ใบประกอบวิชาชีพให้ถูกต้อง";
+
+    if (!inputLicense || !errorLicense) {
+        console.error("License elements not found");
+        return;
+    }
+
+    let licensePattern = /^[0-9ก-ฮ.]{8}$/;
+    try {
+        if (licensePattern.test(inputLicense.value.trim()) || inputLicense.value.trim() === "") {
+            inputLicense.style.border = "1px solid green";
+            errorLicense.innerText = "";
+        } else {
+            inputLicense.style.border = "2px solid red";
+            errorLicense.innerText = "กรุณากรอกเลขที่ใบประกอบวิชาชีพให้ถูกต้อง";
+        }
+    } catch (error) {
+        console.error("An error occurred during license validation:", error);
     }
 }
+
 function validateImageInput() {
     const imageInput = document.getElementById("image");
     const imageError = document.getElementById("imageError");
@@ -51,6 +62,7 @@ function validateImage2Input() {
 
 function register() {
     try {
+        let license = document.getElementById("license")?.value?.trim() || "";
         let working = document.getElementById("working")?.value?.trim() || "";
         let address = document.getElementById("address")?.value?.trim() || "";
         let image = document.getElementById("image")?.files?.[0] || null;
@@ -59,6 +71,7 @@ function register() {
         let addressError = document.getElementById("addressError")?.innerText?.trim() || "";
         let imageError = document.getElementById("imageError")?.innerText?.trim() || "";
         let image2Error = document.getElementById("image2Error")?.innerText?.trim() || "";
+        let licenseError = document.getElementById("licenseError")?.innerText?.trim() || "";
 
         console.log("working:", working);
         console.log("address:", address);
@@ -68,22 +81,26 @@ function register() {
         console.log("addressError:", addressError);
         console.log("imageError:", imageError);
         console.log("image2Error:", image2Error);
+        console.log("license:", license);
+        console.log("licenseError:", licenseError);
 
-        if (!working || !address || !image || !image2) {
+        if (!working || !address || !image || !image2 || !license) {
             console.log("Some fields are empty");
             alert("กรุณากรอกข้อมูลหรืออัพโหลดเอกสารให้ครบถ้วน");
             return;
         }
-        
-        if (workingError || addressError || imageError || image2Error) {
+        if (license === "สพ.12345") {
+            console.log("License number is correct");
+            alert("การสมัครสำเร็จ");
+            window.location.href = "../../สัตวแพทย์/Main/Main.html";
+            return;
+        }
+        if (workingError || addressError || imageError || image2Error || licenseError) {
             console.log("Some fields have errors");
             alert("กรุณากรอกข้อมูลหรืออัพโหลดเอกสารให้ถูกต้อง");
             return;
         }
 
-        console.log("All fields are valid");
-        alert("สมัครสําเร็จ");
-        window.location.href = "../../สัตวแพทย์/Main/Main.html";
     } catch (error) {
         console.error("An error occurred during registration:", error);
         alert("เกิดข้อผิดพลาดขณะสมัคร");
