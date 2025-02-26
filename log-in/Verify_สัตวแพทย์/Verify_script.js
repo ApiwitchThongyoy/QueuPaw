@@ -11,22 +11,10 @@ function validateWorking() {
     }
 } 
 
-function validateAddress() {
-    let inputAddress = document.getElementById("address");
-    let errorAddress = document.getElementById("addressError");
-    let addressPattern = /^(?! )[a-zA-Z0-9ก-ฮ๑-๙ ]{4,}(?<! )$/;
-    if (addressPattern.test(inputAddress.value) || inputAddress.value === "") {
-        inputAddress.style.border = "1px solid green";
-        errorAddress.innerText = "";
-    } else {
-        inputAddress.style.border = "2px solid red";
-        errorAddress.innerText = "กรุณากรอกที่อยู่โรงพยาบาลหรือคลินิกให้ถูกต้อง";
-    }
-}
 function validateLicense() {
     let inputLicense = document.getElementById("license");
     let errorLicense = document.getElementById("licenseError");
-    let licensePattern = /^[0-9]{10}$/;
+    let licensePattern = /^[0-9]{5}$/;
     if (licensePattern.test(inputLicense.value) || inputLicense.value === "") {
         inputLicense.style.border = "1px solid green";
         errorLicense.innerText = "";
