@@ -105,10 +105,15 @@ function register() {
             alert("กรุณากรอกข้อมูลให้ถูกต้อง");
             return;
         }
-
+        try {
+        localStorage.setItem("doctorname", name);
         console.log("All fields are valid");
         alert("สมัครสําเร็จ");
         window.location.href = "../../สัตวแพทย์/Main/Main.html";
+        } catch (error) {
+        console.error("An error occurred during registration:", error);
+        alert("เกิดข้อผิดพลาดขณะสมัคร");
+        }
     } catch (error) {
         console.error("An error occurred during registration:", error);
         alert("เกิดข้อผิดพลาดขณะสมัคร");
