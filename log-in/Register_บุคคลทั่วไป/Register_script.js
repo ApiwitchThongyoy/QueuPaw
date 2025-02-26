@@ -80,7 +80,7 @@ function register() {
     try {
         localStorage.setItem('username', name)
         alert("สมัครสมาชิกสําเร็จ");
-        window.location.href = "../Main_บุคคลทั่วไป/Main.html";
+        window.location.href = "../User/Main/Main.html";
     } catch (error) {
         alert("เกิดข้อผิดพลาด: " + error.message);
     }
