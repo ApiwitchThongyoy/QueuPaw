@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
         usernameElement.textContent = userName;
     }
 
-    // Fetch canceled booking information from localStorage
-    const canceledBookings = JSON.parse(localStorage.getItem('canceledBookings')) || [];
+    // Fetch booking information from localStorage
+    const history = JSON.parse(localStorage.getItem('history')) || [];
 
     // Get the history list container
     const historyList = document.getElementById('historyList');
@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <p><strong>วันที่:</strong> <span>${bookingInfo.date || 'N/A'}</span></p>
                 <p><strong>ประเภทสัตว์:</strong> <span>${bookingInfo.animalType || 'N/A'}</span></p>
                 <p><strong>เวลา:</strong> <span>${bookingInfo.time || 'N/A'}</span></p>
+                <p><strong>สถานะ:</strong> <span>${bookingInfo.status}</span></p>
+                ${bookingInfo.status === "ยกเลิก" ? `<p><strong>เหตุผลในการยกเลิก:</strong> <span>${bookingInfo.cancelReason}</span></p>` : ""}
             </div>
             <div class="rating-section">
                 <h3>ให้คะแนนการจอง</h3>
@@ -53,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Append each booking info to the history list
-    canceledBookings.forEach(bookingInfo => {
+    history.forEach(bookingInfo => {
         const card = createHistoryCard(bookingInfo);
         historyList.appendChild(card);
     });

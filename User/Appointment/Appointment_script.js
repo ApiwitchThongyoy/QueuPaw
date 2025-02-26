@@ -4,9 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (usernameElement && userName) {
         usernameElement.textContent = userName;
     }
-});
 
-document.addEventListener('DOMContentLoaded', function() {
     // Fetch booking information from localStorage
     const bookingInfo = JSON.parse(localStorage.getItem('bookingInfo')) || {};
 
@@ -39,6 +37,7 @@ function confirmBooking() {
     localStorage.setItem('history', JSON.stringify(history));
 
     alert("การจองสำเร็จ");
+    clearBookingInfo();
     window.location.href = "../../สัตวแพทย์/History/History.html";
 }
 
@@ -66,8 +65,13 @@ function cancelBooking() {
         localStorage.setItem('history', JSON.stringify(history));
 
         alert("การจองถูกยกเลิก");
-        window.location.href = "../../User/History/History.html";
+        clearBookingInfo();
+        window.location.href = "../User/History/History.html";
     }
+}
+
+function clearBookingInfo() {
+    localStorage.removeItem('bookingInfo');
 }
 
 function toggleMenu() {
