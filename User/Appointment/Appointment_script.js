@@ -42,5 +42,5 @@ function cancelBooking() {
     localStorage.removeItem('bookingInfo');
 
     alert('การจองถูกยกเลิกแล้ว');
-    window.location.href = "History.html"; // Redirect to History.html
+    window.location.href = "../History/History.html"; // Redirect to History.html
 }
