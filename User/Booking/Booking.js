@@ -20,7 +20,7 @@ function validateForm() {
 
     localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
     alert('การจองเสร็จแล้ว');
-    window.location.href = "Appointment.html"; // Redirect to Appointment.html
+    window.location.href = "../Appointment/Appointment.html"; // Redirect to Appointment.html
     return false; // Prevent default form submission
 }
 
