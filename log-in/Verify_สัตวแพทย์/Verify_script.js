@@ -48,6 +48,7 @@ function validateImage2Input() {
 function register() {
     try {
         // Call validation functions
+        validateWorking();
         validateLicense();
         validateImageInput();
         validateImage2Input();
@@ -58,7 +59,6 @@ function register() {
         let image = document.getElementById("image")?.files?.[0] || null;
         let image2 = document.getElementById("image2")?.files?.[0] || null;
         let workingError = document.getElementById("workingError")?.innerText?.trim() || "";
-        let addressError = document.getElementById("addressError")?.innerText?.trim() || "";
         let imageError = document.getElementById("imageError")?.innerText?.trim() || "";
         let image2Error = document.getElementById("image2Error")?.innerText?.trim() || "";
         let licenseError = document.getElementById("licenseError")?.innerText?.trim() || "";
@@ -68,14 +68,13 @@ function register() {
         console.log("image:", image);
         console.log("image2:", image2);
         console.log("workingError:", workingError);
-        console.log("addressError:", addressError);
         console.log("imageError:", imageError);
         console.log("image2Error:", image2Error);
         console.log("license:", license);
         console.log("licenseError:", licenseError);
 
         // Check if any fields are empty
-        if (!working|| !image || !image2 || !license) {
+        if (!working || !image || !image2 || !license) {
             console.log("Some fields are empty");
             alert("กรุณากรอกข้อมูลหรืออัพโหลดเอกสารให้ครบถ้วน");
             return;
@@ -85,6 +84,7 @@ function register() {
         if (license === "สพ.12345") {
             console.log("License number is correct");
             alert("การสมัครสำเร็จ");
+            localStorage.setItem('workingName', working); // Save working name to local storage
             window.location.href = "../../สัตวแพทย์/Main/Main.html";
             return;
         }
