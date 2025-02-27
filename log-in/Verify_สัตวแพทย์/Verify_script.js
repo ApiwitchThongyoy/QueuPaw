@@ -1,7 +1,7 @@
 function validateWorking() {
     let inputWorking = document.getElementById("working");
     let errorWorking = document.getElementById("workingError");
-    let WorkingPattern = /^(?! )[a-zA-Z0-9ก-ฮ๑-๙ ]{4,}(?<! )$/;
+    let WorkingPattern = /^(?! )[a-zA-Z0-9ก-ฮ๑-๙\u0E00-\u0E7F\u0E80-\u0E99]{20,}(?<! )$/;
     if (WorkingPattern.test(inputWorking.value) || inputWorking.value === "") {
         inputWorking.style.border = "1px solid green";
         errorWorking.innerText = "";
@@ -81,7 +81,7 @@ function register() {
         }
 
         // Check if license number is correct
-        if (license === "สพ.12345") {
+        if (license === "สพ.12345" && working === "คลินิกแม่ต๋ำรักษาสัตว์") {
             console.log("License number is correct");
             alert("การสมัครสำเร็จ");
             localStorage.setItem('workingName', working); // Save working name to local storage
