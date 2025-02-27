@@ -1,65 +1,64 @@
 function validateName() {
-    let inputName = document.getElementById("name");
-    let errorName = document.getElementById("nameError");
-    let namePattern = /^[a-zA-Zก-ฮะ-ๅ]{2,}$/;
-    if (namePattern.test(inputName.value)) {
-        inputName.style.border = "1px solid green";
-        errorName.innerText = "";
+    const name = document.getElementById('name').value;
+    const nameError = document.getElementById('nameError');
+    if (name.trim() === '') {
+        nameError.textContent = 'กรุณากรอกชื่อของคุณ';
     } else {
-        inputName.style.border = "2px solid red";
-        errorName.innerText = "กรุณากรอกชื่อให้ถูกต้อง";
+        nameError.textContent = '';
     }
 }
 
 function validateNumber() {
-    let inputNumber = document.getElementById("number");
-    let errorNumber = document.getElementById("numberError");
-    let numberPattern = /^[0-9]{10}$/;
-    if (numberPattern.test(inputNumber.value)) {
-        inputNumber.style.border = "1px solid green";
-        errorNumber.innerText = "";
+    const number = document.getElementById('number').value;
+    const numberError = document.getElementById('numberError');
+    const numberPattern = /^[0-9]{10}$/;
+    if (!numberPattern.test(number)) {
+        numberError.textContent = 'กรุณากรอกเบอร์โทรศัพท์ที่ถูกต้อง';
     } else {
-        inputNumber.style.border = "2px solid red";
-        errorNumber.innerText = "กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10 หลัก)";
+        numberError.textContent = '';
     }
 }
 
 function validateEmail() {
-    let inputEmail = document.getElementById("email");
-    let errorEmail = document.getElementById("emailError");
-    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (emailPattern.test(inputEmail.value)) {
-        inputEmail.style.border = "1px solid green";
-        errorEmail.innerText = "";
+    const email = document.getElementById('email').value;
+    const emailError = document.getElementById('emailError');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        emailError.textContent = 'กรุณากรอกอีเมลที่ถูกต้อง';
     } else {
-        inputEmail.style.border = "2px solid red";
-        errorEmail.innerText = "กรุณากรอกอีเมลให้ถูกต้อง";
+        emailError.textContent = '';
     }
 }
 
 function validatePassword() {
-    let inputPassword = document.getElementById("password");
-    let errorPassword = document.getElementById("passwordError");
-    let passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    if (passwordPattern.test(inputPassword.value)) {
-        inputPassword.style.border = "1px solid green";
-        errorPassword.innerText = "";
+    const password = document.getElementById('password').value;
+    const passwordError = document.getElementById('passwordError');
+    if (password.length < 8) {
+        passwordError.textContent = 'รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร';
     } else {
-        inputPassword.style.border = "2px solid red";
-        errorPassword.innerText = "กรุณากรอกรหัสผ่านให้ถูกต้อง (อย่างน้อย 8 ตัวอักษร ประกอบด้วยตัวอักษรและตัวเลข)";
+        passwordError.textContent = '';
     }
 }
 
 function validateOtp() {
-    let inputOtp = document.getElementById("otp");
-    let errorOtp = document.getElementById("otpError");
-    let otpPattern = /^[0-9]{6}$/;
-    if (otpPattern.test(inputOtp.value)) {
-        inputOtp.style.border = "1px solid green";
-        errorOtp.innerText = "";
+    const otp = document.getElementById('otp').value;
+    const otpError = document.getElementById('otpError');
+    if (otp.length !== 6 || isNaN(otp)) {
+        otpError.textContent = 'กรุณากรอก OTP ที่ถูกต้อง';
     } else {
-        inputOtp.style.border = "2px solid red";
-        errorOtp.innerText = "กรุณากรอก OTP ให้ถูกต้อง";
+        otpError.textContent = '';
+    }
+}
+
+function validateAddress() {
+    let inputAddress = document.getElementById("address");
+    let errorAddress = document.getElementById("addressError");
+    if (inputAddress.value.trim() === "") {
+        inputAddress.style.border = "2px solid red";
+        errorAddress.innerText = "กรุณากรอกที่อยู่";
+    } else {
+        inputAddress.style.border = "1px solid green";
+        errorAddress.innerText = "";
     }
 }
 
@@ -73,6 +72,12 @@ function sendOtp() {
 
 function register() {
     try {
+        validateEmail();
+        validateOtp();
+        validatePassword();
+        validateName();
+        validateNumber();
+
         let email = document.getElementById("email")?.value?.trim() || "";
         let otp = document.getElementById("otp")?.value?.trim() || "";
         let password = document.getElementById("password")?.value?.trim() || "";
@@ -100,20 +105,17 @@ function register() {
             alert("กรุณากรอกข้อมูลให้ครบถ้วน");
             return;
         }
+
         if (emailError || otpError || passwordError || nameError || numberError) {
             console.log("Some fields have errors");
             alert("กรุณากรอกข้อมูลให้ถูกต้อง");
             return;
         }
-        try {
-        localStorage.setItem("doctorname", name);
-        console.log("All fields are valid");
-        alert("สมัครสําเร็จ");
-        window.location.href = "../../สัตวแพทย์/Main/Main.html";
-        } catch (error) {
-        console.error("An error occurred during registration:", error);
-        alert("เกิดข้อผิดพลาดขณะสมัคร");
-        }
+
+        console.log("Registration successful");
+        alert("กรุณาทำขั้นตอนต่อไป");
+        location.href = "../verify_สัตวแพทย์/Verify.html";
+
     } catch (error) {
         console.error("An error occurred during registration:", error);
         alert("เกิดข้อผิดพลาดขณะสมัคร");

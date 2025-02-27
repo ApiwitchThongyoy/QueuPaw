@@ -14,23 +14,12 @@ function validateWorking() {
 function validateLicense() {
     let inputLicense = document.getElementById("license");
     let errorLicense = document.getElementById("licenseError");
-
-    if (!inputLicense || !errorLicense) {
-        console.error("License elements not found");
-        return;
-    }
-
-    let licensePattern = /^[0-9ก-ฮ.]{8}$/;
-    try {
-        if (licensePattern.test(inputLicense.value.trim()) || inputLicense.value.trim() === "") {
-            inputLicense.style.border = "1px solid green";
-            errorLicense.innerText = "";
-        } else {
-            inputLicense.style.border = "2px solid red";
-            errorLicense.innerText = "กรุณากรอกเลขที่ใบประกอบวิชาชีพให้ถูกต้อง";
-        }
-    } catch (error) {
-        console.error("An error occurred during license validation:", error);
+    if (inputLicense.value.trim() === "") {
+        inputLicense.style.border = "2px solid red";
+        errorLicense.innerText = "กรุณากรอกเลขที่ใบประกอบวิชาชีพ";
+    } else {
+        inputLicense.style.border = "1px solid green";
+        errorLicense.innerText = "";
     }
 }
 
@@ -39,11 +28,9 @@ function validateImageInput() {
     const imageError = document.getElementById("imageError");
 
     if (imageInput.files.length > 0) {
-        imageInput.style.border = "1px solid green";
         imageError.innerText = "";
     } else {
-        imageInput.style.border = "2px solid red";
-        imageError.innerText = "กรุณาอัพโหลดเอกสารสำเนาใบประกอบวิชาชีพให้ถูกต้อง.";
+        imageError.innerText = "กรุณาอัพโหลดสำเนาใบประกอบวิชาชีพ";
     }
 }
 
@@ -52,19 +39,22 @@ function validateImage2Input() {
     const image2Error = document.getElementById("image2Error");
 
     if (image2Input.files.length > 0) {
-        image2Input.style.border = "1px solid green";
         image2Error.innerText = "";
     } else {
-        image2Input.style.border = "2px solid red";
         image2Error.innerText = "กรุณาอัพโหลดเอกสารหลักฐานยืนยันการเข้าทำงานในสถานพยาบาลให้ถูกต้อง.";
     }
 }
 
 function register() {
     try {
+        // Call validation functions
+        validateLicense();
+        validateImageInput();
+        validateImage2Input();
+
+        // Get field values and errors
         let license = document.getElementById("license")?.value?.trim() || "";
         let working = document.getElementById("working")?.value?.trim() || "";
-        let address = document.getElementById("address")?.value?.trim() || "";
         let image = document.getElementById("image")?.files?.[0] || null;
         let image2 = document.getElementById("image2")?.files?.[0] || null;
         let workingError = document.getElementById("workingError")?.innerText?.trim() || "";
@@ -73,8 +63,8 @@ function register() {
         let image2Error = document.getElementById("image2Error")?.innerText?.trim() || "";
         let licenseError = document.getElementById("licenseError")?.innerText?.trim() || "";
 
+        // Log field values and errors
         console.log("working:", working);
-        console.log("address:", address);
         console.log("image:", image);
         console.log("image2:", image2);
         console.log("workingError:", workingError);
@@ -84,18 +74,23 @@ function register() {
         console.log("license:", license);
         console.log("licenseError:", licenseError);
 
-        if (!working || !address || !image || !image2 || !license) {
+        // Check if any fields are empty
+        if (!working|| !image || !image2 || !license) {
             console.log("Some fields are empty");
             alert("กรุณากรอกข้อมูลหรืออัพโหลดเอกสารให้ครบถ้วน");
             return;
         }
+
+        // Check if license number is correct
         if (license === "สพ.12345") {
             console.log("License number is correct");
             alert("การสมัครสำเร็จ");
             window.location.href = "../../สัตวแพทย์/Main/Main.html";
             return;
         }
-        if (workingError || addressError || imageError || image2Error || licenseError) {
+
+        // Check if any fields have errors
+        if (workingError || imageError || image2Error || licenseError) {
             console.log("Some fields have errors");
             alert("กรุณากรอกข้อมูลหรืออัพโหลดเอกสารให้ถูกต้อง");
             return;
