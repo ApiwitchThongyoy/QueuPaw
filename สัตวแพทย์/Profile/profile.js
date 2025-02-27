@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const doctornameLink = document.getElementById('doctornameLink');
     const emailInput = document.getElementById('emailInput');
     const licenseInput = document.getElementById('licenseInput');
-    const workingNameInput = document.getElementById('WorkingNameInput');
+    const workingNameInput = document.getElementById('workingName');
 
     if (doctornameInput) doctornameInput.value = doctorname || '';
     if (doctornameLink) doctornameLink.textContent = doctorname || 'xxxx xxxxx';
@@ -46,7 +46,7 @@ function saveProfile() {
 }
 
 function toggleEdit() {
-    const fields = ['doctornameInput', 'emailInput', 'licenseInput', 'WorkingNameInput'];
+    const fields = ['doctornameInput', 'emailInput', 'licenseInput', 'workingName'];
     fields.forEach(field => {
         const input = document.getElementById(field);
         if (input) {
@@ -61,7 +61,7 @@ function saveChanges() {
     const doctorname = document.getElementById('doctornameInput').value;
     const email = document.getElementById('emailInput').value;
     const license = document.getElementById('licenseInput').value;
-    const workingName = document.getElementById('WorkingNameInput').value;
+    const workingName = document.getElementById('workingName').value;
 
     // Save the updated data to local storage
     localStorage.setItem('doctorname', doctorname);
@@ -75,6 +75,8 @@ function saveChanges() {
     // Make the fields read-only again
     toggleEdit();
     document.querySelector('.button[onclick="saveChanges()"]').style.display = 'none';
+    alert('Changes saved successfully!');
+    window.location.haf = './profile.html';
 }
 
 function loadUserdoctorrname() {
