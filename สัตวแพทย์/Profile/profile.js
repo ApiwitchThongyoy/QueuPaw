@@ -30,7 +30,7 @@ function saveProfile() {
                 // Fetch data from localStorage or an API
                 const name = localStorage.getItem('doctorName') || 'Default Name';
                 const clinicName = localStorage.getItem('clinicName') || 'Default Clinic';
-                const working = localStorage.getItem('working') || 'Default Hospital/Clinic';
+                const working = localStorage.getItem('working') || 'Default Professional license';
                 const address = localStorage.getItem('address') || 'Default Address';
                 const license = localStorage.getItem('license') || 'Default License Number';
     
