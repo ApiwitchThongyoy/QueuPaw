@@ -1,10 +1,10 @@
-function validateName() {
-    const name = document.getElementById('name').value;
-    const nameError = document.getElementById('nameError');
-    if (name.trim() === '') {
-        nameError.textContent = 'กรุณากรอกชื่อของคุณ';
+function validatedoctorName() {
+    const doctorName = document.getElementById('doctorname').value;
+    const doctorNameError = document.getElementById('doctornameError');
+    if (doctorName.trim() === '') {
+        doctorNameError.textContent = 'กรุณากรอกชื่อของคุณ';
     } else {
-        nameError.textContent = '';
+        doctorNameError.textContent = '';
     }
 }
 
@@ -75,50 +75,44 @@ function register() {
         validateEmail();
         validateOtp();
         validatePassword();
-        validateName();
+        validatedoctorName();
         validateNumber();
 
-        let email = document.getElementById("email")?.value?.trim() || "";
-        let otp = document.getElementById("otp")?.value?.trim() || "";
-        let password = document.getElementById("password")?.value?.trim() || "";
-        let name = document.getElementById("name")?.value?.trim() || "";
-        let number = document.getElementById("number")?.value?.trim() || "";
-        let emailError = document.getElementById("emailError")?.innerText?.trim() || "";
-        let otpError = document.getElementById("otpError")?.innerText?.trim() || "";
-        let passwordError = document.getElementById("passwordError")?.innerText?.trim() || "";
-        let nameError = document.getElementById("nameError")?.innerText?.trim() || "";
-        let numberError = document.getElementById("numberError")?.innerText?.trim() || "";
+        const email = document.getElementById('email').value;
+        const otp = document.getElementById('otp').value;
+        const password = document.getElementById('password').value;
+        const name = document.getElementById('doctorname').value;
+        const number = document.getElementById('number').value;
 
-        console.log("email:", email);
-        console.log("otp:", otp);
-        console.log("password:", password);
-        console.log("name:", name);
-        console.log("number:", number);
-        console.log("emailError:", emailError);
-        console.log("otpError:", otpError);
-        console.log("passwordError:", passwordError);
-        console.log("nameError:", nameError);
-        console.log("numberError:", numberError);
+        const emailError = document.getElementById('emailError').textContent;
+        const otpError = document.getElementById('otpError').textContent;
+        const passwordError = document.getElementById('passwordError').textContent;
+        const nameError = document.getElementById('doctornameError').textContent;
+        const numberError = document.getElementById('numberError').textContent;
 
         if (!email || !otp || !password || !name || !number) {
-            console.log("Some fields are empty");
-            alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+            alert('กรุณากรอกข้อมูลให้ครบถ้วน');
             return;
         }
 
         if (emailError || otpError || passwordError || nameError || numberError) {
-            console.log("Some fields have errors");
-            alert("กรุณากรอกข้อมูลให้ถูกต้อง");
+            alert('กรุณากรอกข้อมูลให้ถูกต้อง');
             return;
         }
 
-        console.log("Registration successful");
-        alert("กรุณาทำขั้นตอนต่อไป");
-        location.href = "../verify_สัตวแพทย์/Verify.html";
+        // Save the data to local storage
+        localStorage.setItem('email', email);
+        localStorage.setItem('otp', otp);
+        localStorage.setItem('password', password);
+        localStorage.setItem('doctorname', name);
+        localStorage.setItem('number', number);
+
+        alert('กรุณาทำขั้นตอนต่อไปเพื่อยืนยันตัวตน');
+        window.location.href = '../verify_สัตวแพทย์/verify.html';
 
     } catch (error) {
-        console.error("An error occurred during registration:", error);
-        alert("เกิดข้อผิดพลาดขณะสมัคร");
+        console.error('An error occurred during registration:', error);
+        alert('เกิดข้อผิดพลาดขณะสมัคร');
     }
 }
 

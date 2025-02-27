@@ -12,18 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function toggleMenu() {
-    const menu = document.getElementById('dropdownMenu');
-    menu.classList.toggle('show');
-}
-
-function saveProfile() {
-    var profileName = document.getElementById("profileName").value;
-    localStorage.setItem('doctorname', profileName);
-    alert('Profile updated successfully!');
-    location.reload(); // Reload the page to reflect the changes
-}
-
 document.addEventListener('DOMContentLoaded', (event) => {
     // Retrieve data from local storage
     const doctorname = localStorage.getItem('doctorname');
@@ -75,4 +63,16 @@ function saveChanges() {
     // Make the fields read-only again
     toggleEdit();
     document.querySelector('.button[onclick="saveChanges()"]').style.display = 'none';
+}
+
+function toggleMenu() {
+    const menu = document.getElementById('dropdownMenu');
+    menu.classList.toggle('show');
+}
+
+function saveProfile() {
+    var profileName = document.getElementById("profileName").value;
+    localStorage.setItem('doctorname', profileName);
+    alert('Profile updated successfully!');
+    location.reload(); // Reload the page to reflect the changes
 }
