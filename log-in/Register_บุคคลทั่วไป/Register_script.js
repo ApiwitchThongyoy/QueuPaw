@@ -51,7 +51,10 @@ function validatePassword() {
         errorPassword.innerText = "กรุณากรอกรหัสผ่านให้ถูกต้อง (อย่างน้อย 8 ตัวอักษร ประกอบด้วยตัวอักษรและตัวเลข)";
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 59a6329764084064e15c513c698aa1aa5f1a1a3d
 function validateOtp() {
     let inputOtp = document.getElementById("otp");
     let errorOtp = document.getElementById("otpError");
@@ -64,7 +67,10 @@ function validateOtp() {
         errorOtp.innerText = "กรุณากรอก OTP ให้ถูกต้อง";
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 59a6329764084064e15c513c698aa1aa5f1a1a3d
 function sendOtp() {
     const email = document.getElementById("email").value;
     const otp = Math.floor(100000 + Math.random() * 900000); // Generate a 6-digit OTP
@@ -72,7 +78,10 @@ function sendOtp() {
     console.log("OTP:", otp); // Display OTP in the console
     alert("OTP ถูกส่งไปยังอีเมลของคุณแล้ว");
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 59a6329764084064e15c513c698aa1aa5f1a1a3d
 function register(event) {
     event.preventDefault(); // Prevent form submission
     try {
