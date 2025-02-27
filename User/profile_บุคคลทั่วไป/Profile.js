@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-document.addEventListener("DOMContentLoaded", function() {
-    const userName = localStorage.getItem("userName") || "xxxxxxxxxxxxx";
-    document.getElementById("username").textContent = userName;
-=======
 document.addEventListener('DOMContentLoaded', (event) => {
     // Retrieve data from local storage
     const username = localStorage.getItem('username');
@@ -19,7 +14,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (usernameLink) usernameLink.textContent = username || 'xxxx xxxxx';
     if (emailInput) emailInput.value = email || '';
     if (numberInput) numberInput.value = number || ''; // Set the value of the number input
->>>>>>> 59a6329764084064e15c513c698aa1aa5f1a1a3d
 });
 
 function toggleMenu() {
