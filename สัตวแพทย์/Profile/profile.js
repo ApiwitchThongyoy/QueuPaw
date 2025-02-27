@@ -44,24 +44,6 @@ function saveProfile() {
     alert('Profile updated successfully!');
     location.reload(); // Reload the page to reflect the changes
 }
-<<<<<<< HEAD
-            const license = localStorage.getItem('license') || 'Default License Number';
-            document.addEventListener('DOMContentLoaded', function() {
-                // Fetch data from localStorage or an API
-                const name = localStorage.getItem('doctorName') || 'Default Name';
-                const clinicName = localStorage.getItem('clinicName') || 'Default Clinic';
-                const working = localStorage.getItem('working') || 'Default Professional license';
-                const address = localStorage.getItem('address') || 'Default Address';
-                const license = localStorage.getItem('license') || 'Default License Number';
-    
-                // Set the values of the input fields
-                document.getElementById('name').value = name;
-                document.getElementById('clinicName').value = clinicName;
-                document.getElementById('working').value = working;
-                document.getElementById('address').value = address;
-                document.getElementById('license').value = license;
-            });
-=======
 
 function toggleEdit() {
     const fields = ['doctornameInput', 'emailInput', 'licenseInput', 'workingName'];
@@ -104,4 +86,3 @@ function loadUserdoctorrname() {
         document.getElementById('name').value = username;
     }
 }
->>>>>>> 59a6329764084064e15c513c698aa1aa5f1a1a3d

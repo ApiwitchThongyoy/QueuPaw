@@ -122,11 +122,7 @@ a {
     height:auto;
     border-radius: 20px;
   }
-<<<<<<< HEAD
-.OTP-button {
-=======
   .OTP-button {
->>>>>>> 59a6329764084064e15c513c698aa1aa5f1a1a3d
     display: block;
     width: 100px;
     margin: 10px 0;
@@ -140,8 +136,4 @@ a {
     text-align: center;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
     margin-left: 0;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 59a6329764084064e15c513c698aa1aa5f1a1a3d
