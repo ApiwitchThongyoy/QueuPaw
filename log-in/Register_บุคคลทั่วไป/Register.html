@@ -12,7 +12,6 @@
         <div>
             <img src="./img/Icon User.png" alt="">
         </div>
-        <input type="file" id="fileInput" class="upload-input" accept="image/*" onchange="previewImage(event)">
     </div>
 
     <div class="container">
@@ -22,35 +21,35 @@
             </legend>
 
             <input class="textbox" type="email" id="email" placeholder="กรุณากรอกอีเมลของคุณ :" oninput="validateEmail()">
-            <small id="emailError" class="error-email"></small>
+            <small id="emailError" class="error"></small>
             <button type="button" class="OTP-button" onclick="sendOtp()">ส่ง OTP</button>
             <legend>
                 <label for="otp">OTP</label>
             </legend>
 
             <input class="textbox" type="text" id="otp" placeholder="กรุณากรอก OTP ของคุณ :" oninput="validateOtp()">
-            <small id="otpError" class="error-otp"></small>
+            <small id="otpError" class="error"></small>
             <legend>
                 <label for="Password">รหัสผ่าน</label>
             </legend>
             
 
             <input class="textbox" type="password" id="password" placeholder="กรุณากรอกรหัสผ่านของคุณ :" oninput="validatePassword()">
-            <small id="passwordError" class="error-password"></small>
+            <small id="passwordError" class="error"></small>
             
             <legend>
                 <label class="Name">ชื่อ</label>
             </legend>
 
             <input class="textbox" type="text" id="name" placeholder="กรุณากรอกชื่อของคุณ :" oninput="validateName()">
-            <small id="nameError" class="error-name"></small>
+            <small id="nameError" class="error"></small>
             
             <legend>
                 <label class="Number">เบอร์โทรศัพท์</label>
             </legend>
 
             <input class="textbox" type="text" id="number" placeholder="กรุณากรอกเบอร์โทรศัพท์ของคุณ:" oninput="validateNumber()">
-            <small id="numberError" class="error-number"></small>
+            <small id="numberError" class="error"></small>
             
             <button class="button" type="submit">ยืนยัน</button>
         </form>

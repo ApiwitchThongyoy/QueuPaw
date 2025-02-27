@@ -143,6 +143,7 @@ border-radius: 20px;
 display: grid;
 place-content: start;
 height: 400px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .img{ /*รูปในกรอบ*/
 width:200px;
@@ -168,5 +169,11 @@ border-radius: 5px;
 cursor: pointer;
 margin-left:12rem; 
 position: absolute;
-margin-top: 5rem; 
+margin-top: 4rem; 
+}
+input[type="Profile"] {
+  font-size: 20px;
+  border-radius: 24px;
+  padding: -5px;
+  box-shadow: #02203A;
 }
