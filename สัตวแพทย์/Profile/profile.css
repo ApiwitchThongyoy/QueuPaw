@@ -155,7 +155,7 @@ grid-template-columns: 1fr;
 row-gap: 50px;
 color: #02203A;
 font-size: 22px;
-margin-top: -150px;
+margin-top:-170px;
 margin-left: 300px;
 }
 .button{
@@ -168,4 +168,10 @@ border-radius: 5px;
 cursor: pointer;
 margin-left:12rem; 
 position: absolute;
+margin-top: -20px;
+}
+input[type="Profile"] {
+  font-size: 20px;
+  border-radius: 24px;
+  padding: -5px;
 }
