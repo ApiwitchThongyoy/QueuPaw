@@ -81,7 +81,7 @@ function register() {
         }
 
         // Check if license number is correct
-        if (license === "สพ.12345") {
+        if (license === "สพ.12345" && working === "คลินิกแม่ต๋ำรักษาสัตว์") {
             console.log("License number is correct");
             alert("การสมัครสำเร็จ");
             localStorage.setItem('workingName', working); // Save working name to local storage
