@@ -23,6 +23,13 @@
 
             <input class="textbox" type="email" id="email" placeholder="กรุณากรอกอีเมลของคุณ :" oninput="validateEmail()">
             <small id="emailError" class="error-email"></small>
+            <button type="button" class="OTP-button" onclick="sendOtp()">ส่ง OTP</button>
+            <legend>
+                <label for="otp">OTP</label>
+            </legend>
+
+            <input class="textbox" type="text" id="otp" placeholder="กรุณากรอก OTP ของคุณ :" oninput="validateOtp()">
+            <small id="otpError" class="error-otp"></small>
             
             <legend>
                 <label for="Password">รหัสผ่าน</label>

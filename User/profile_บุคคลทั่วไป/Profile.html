@@ -6,50 +6,47 @@
     <title>โปรไฟล์</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
-    <script src="Profile.js"></script>
+    <script src="Profile.js" defer></script>
 </head>
 <body>
     <div class="header">
         <div>
             <img src="../profile_บุคคลทั่วไป/img/LOGO.png" alt=""/>
         </div>
-            <div class="search-bar">
-                <input type="text" placeholder="ค้นหา...">
-                <button>
-                    <i class='bx bx-search-alt-2' ></i>
-                </button>
-            </div>
-            <ul>
-                <li><a href="../Main/Main.html">หน้าหลัก</a></li>
-                <li><a href="../Appointment/Appointment.html">การนัดหมาย</a></li>
-                <li><a href="../History/History.html">ประวัติการจอง</a></li>
-                <div class="profile-menu">
-                    <img src="../profile_บุคคลทั่วไป/img/Icon User.png" alt="User" class="profile-icon" onclick="toggleMenu()">
+        <div class="search-bar">
+            <input type="text" placeholder="ค้นหา...">
+            <button>
+                <i class='bx bx-search-alt-2'></i>
+            </button>
+        </div>
+        <ul>
+            <li><a href="../Main/Main.html">หน้าหลัก</a></li>
+            <li><a href="../Appointment/Appointment.html">การนัดหมาย</a></li>
+            <li><a href="../History/History.html">ประวัติการจอง</a></li>
+            <div class="profile-menu">
+                <img src="../profile_บุคคลทั่วไป/img/Icon User.png" alt="User" class="profile-icon" onclick="toggleMenu()">
                 <div class="dropdown-menu" id="dropdownMenu">
                     <a href="#" id="username">xxxx xxxxx</a>
-                    <a href="../profile_บุคคลทั่วไป/index.html">โปรไฟล์</a>
-                    <a href="/log-in/Login/index.html">ออกจากระบบ</a>
+                    <a href="../profile_บุคคลทั่วไป/Profile.html">โปรไฟล์</a>
+                    <a href="../../log-in/Login/index.html">ออกจากระบบ</a>
                 </div>
-            </ul>
-        </div>
+            </div>
+        </ul>
     </div> 
     <div class="container">
         <div class="container-grid">
             <div class="item">
                 <img class="img" src="../profile_บุคคลทั่วไป/img/Icon User.png" alt="">
                 <div class="text">
-                    <div>ชื่อ : xxxxxxxxxxxxx </div>
+                    <div>ชื่อ : <i id="username">xxxxxxxxxxxxx</i></div>
                     <div>อีเมล : xxxxxxxxxxx@xxxxxxx</div>
                     <div>เบอร์โทรศัพท์ : xxx-xxx-xxxxx</div>
                     <div>
-                        <button class="button">แก้ไขข้อมูล</button>
+                        <button class="button" onclick="window.location.href = '../../log-in/Edit_information_บุคคลทั่วไป/Edit_information.html';">แก้ไขข้อมูล</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-
 </body>
 </html>

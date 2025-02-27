@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var userName = localStorage.getItem('username');
-    var usernameElement = document.getElementById("username");
-    if (usernameElement && userName) {
-        usernameElement.textContent = userName;
-    }
+    const userName = localStorage.getItem("userName") || "xxxxxxxxxxxxx";
+    document.getElementById("username").textContent = userName;
 });
 
 function toggleMenu() {

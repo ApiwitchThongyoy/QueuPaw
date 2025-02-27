@@ -70,7 +70,7 @@ margin-right: 25px;
 }
 
 .container{
-margin: 12%;
+margin-top: 40px;
 }
 
 .container-grid{
@@ -331,7 +331,7 @@ margin-left: -40px;
 
 button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #ddd;
   color: #fff;
   border: none;
   border-radius: 5px;
