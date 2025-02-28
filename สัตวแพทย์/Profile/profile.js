@@ -78,11 +78,3 @@ function saveChanges() {
     alert('Changes saved successfully!');
     window.location.haf = './profile.html';
 }
-
-function loadUserdoctorrname() {
-    const doctorname = localStorage.getItem('docname');
-    if (username) {
-        document.getElementById('username').innerText = username;
-        document.getElementById('name').value = username;
-    }
-}
