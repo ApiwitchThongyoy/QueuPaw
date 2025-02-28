@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Populate the fields with the retrieved data
     const usernameInput = document.getElementById('username');
     const usernameLink = document.getElementById('usernameLink');
-    const emailInput = document.getElementById('emailInput');
+    const emailInput = document.getElementById('email');
     const numberInput = document.getElementById('number'); // Use the correct ID
 
     if (usernameInput) usernameInput.value = username || '';
