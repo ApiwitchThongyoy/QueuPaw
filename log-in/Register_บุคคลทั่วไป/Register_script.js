@@ -113,6 +113,9 @@ function register(event) {
 
     try {
         localStorage.setItem('username', name);
+        localStorage.setItem('email', email);
+        localStorage.setItem('number', phoneNumber);
+        localStorage.setItem('password', password);
         alert("สมัครสมาชิกสําเร็จ");
         window.location.href = "../../User/Main/Main.html";
     } catch (error) {
