@@ -1,4 +1,3 @@
-console.log("Register_script.js loaded");
 
 function validateName() {
     let inputName = document.getElementById("name");
@@ -64,11 +63,21 @@ function validateOtp() {
     }
 }
 function sendOtp() {
-    const email = document.getElementById("email").value;
-    const otp = Math.floor(100000 + Math.random() * 900000); // Generate a 6-digit OTP
-    console.log("Email:", email); // Display email in the console
-    console.log("OTP:", otp); // Display OTP in the console
-    alert("OTP ถูกส่งไปยังอีเมลของคุณแล้ว");
+    generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+    alert("รหัส OTP ของคุณคือ " + generatedOtp);
+    let otpButton = document.getElementById("otp-button");
+    otpButton.disabled = true;
+    let seconds = 60;
+    otpButton.innerText = `รับรหัส OTP อีกครั้ง (${seconds}s)`;
+    let countdown = setInterval(() => {
+        seconds--;
+        otpButton.innerText = `รับ OTP อีกครั้ง (${seconds}s)`;
+        if (seconds === 0) {
+            clearInterval(countdown);
+            otpButton.innerText = "รับ OTP";
+            otpButton.disabled = false;
+        }
+    }, 1000);
 }
 function register(event) {
     event.preventDefault(); // Prevent form submission
@@ -104,6 +113,9 @@ function register(event) {
 
     try {
         localStorage.setItem('username', name);
+        localStorage.setItem('email', email);
+        localStorage.setItem('number', phoneNumber);
+        localStorage.setItem('password', password);
         alert("สมัครสมาชิกสําเร็จ");
         window.location.href = "../../User/Main/Main.html";
     } catch (error) {

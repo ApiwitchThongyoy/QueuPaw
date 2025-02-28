@@ -22,7 +22,7 @@ function toggleMenu() {
 }
 
 function toggleEdit() {
-    const fields = ['username', 'emailInput', 'number'];
+    const fields = ['username', 'email', 'number'];
     fields.forEach(field => {
         const input = document.getElementById(field);
         if (input) {
@@ -35,7 +35,7 @@ function toggleEdit() {
 
 function saveChanges() {
     const username = document.getElementById('username').value;
-    const email = document.getElementById('emailInput').value;
+    const email = document.getElementById('email').value;
     const number = document.getElementById('number').value; // Use the correct ID
 
     // Save the updated data to local storage

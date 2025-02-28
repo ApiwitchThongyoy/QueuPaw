@@ -72,6 +72,9 @@ function register() {
         console.log("image2Error:", image2Error);
         console.log("license:", license);
         console.log("licenseError:", licenseError);
+        
+        localStorage.setItem('workingName', working); // Save working name to local storage
+        localStorage.setItem('license', license);
 
         // Check if any fields are empty
         if (!working || !image || !image2 || !license) {
@@ -84,7 +87,6 @@ function register() {
         if (license === "สพ.12345" && working === "คลินิกแม่ต๋ำรักษาสัตว์") {
             console.log("License number is correct");
             alert("การสมัครสำเร็จ");
-            localStorage.setItem('workingName', working); // Save working name to local storage
             window.location.href = "../../สัตวแพทย์/Main/Main.html";
             return;
         }
