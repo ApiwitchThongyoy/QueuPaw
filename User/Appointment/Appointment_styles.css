@@ -5,6 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  font-family: Arial, sans-serif;
 }
 
 .header {
