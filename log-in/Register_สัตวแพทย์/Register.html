@@ -19,35 +19,31 @@
             <legend>
                 <label class="Email">อีเมล</label>
             </legend>
-
             <input class="textbox" type="email" id="email" placeholder="กรุณากรอกอีเมลของคุณ :" oninput="validateEmail()">
             <small id="emailError" class="error"></small>
             <button type="button" class="OTP-button" onclick="sendOtp()">ส่ง OTP</button>
+
             <legend>
                 <label for="otp">OTP</label>
             </legend>
-
             <input class="textbox" type="text" id="otp" placeholder="กรุณากรอก OTP ของคุณ :" oninput="validateOtp()">
             <small id="otpError" class="error"></small>
             
             <legend>
                 <label for="Password">รหัสผ่าน</label>
             </legend>
-
             <input class="textbox" type="password" id="password" placeholder="กรุณากรอกรหัสผ่านของคุณ :" oninput="validatePassword()">
             <small id="passwordError" class="error"></small>
             
             <legend>
                 <label class="Name">ชื่อ</label>
             </legend>
-
             <input class="textbox" type="text" id="doctorname" placeholder="กรุณากรอกชื่อของคุณ :" oninput="validatedoctorName()">
             <small id="doctornameError" class="error"></small>
 
             <legend>
                 <label class="Number">เบอร์โทรศัพท์</label>
             </legend>
-
             <input class="textbox" type="text" id="number" placeholder="กรุณากรอกเบอร์โทรศัพท์ของคุณ :" oninput="validateNumber()">
             <small id="numberError" class="error"></small>
         </form>
@@ -57,7 +53,7 @@
     </div>
 
     <script src="Register_script.js"></script>
-    
+
     <button class="back-button" onclick="window.history.back();">⬅ </button>
 
 </body>

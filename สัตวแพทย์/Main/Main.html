@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200, user-scalable=no">
     <title>Main</title>
+    
     <link rel="stylesheet" href="./styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="Main_script.js" defer></script>
@@ -11,11 +12,15 @@
 <body>
     <div class="header">
         <div>
-            <img src="../Main/img/LOGO.png" alt=""/>
+            <img src="../Main/img/LOGO.png" alt="">
         </div>
         <ul>
-            <li><a href="../Main/Main.html">รายการนัดหมาย</a></li>
-            <li><a href="../History/History.html">ประวัติผู้ป่วย</a></li>
+            <li>
+                <a href="../Main/Main.html">รายการนัดหมาย</a>
+            </li>
+            <li>
+                <a href="../History/History.html">ประวัติผู้ป่วย</a>
+            </li>
             <div class="profile-menu">
                 <img src="../Main/img/Profile_veterinarian.png" alt="User" class="profile-icon" onclick="toggleMenu()">
                 <div class="dropdown-menu" id="dropdownMenu">
@@ -26,9 +31,11 @@
             </div>
         </ul>
     </div> 
+    
     <div class="container">
-        <h1 style="margin-left: 215px;"><i class='bx bxs-calendar'></i> รายการนัดหมายวันนี้</h1>
-        
+        <h1 style="margin-left: 215px;">
+            <i class='bx bxs-calendar'></i> รายการนัดหมายวันนี้
+        </h1>
         <div id="appointmentsContainer"></div>
     </div>   
 </body>

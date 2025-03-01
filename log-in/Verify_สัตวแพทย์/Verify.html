@@ -22,23 +22,28 @@
                 <input type="text" id="working" class="textbox" oninput="validateWorking()">
                 <small id="workingError" class="error"></small>
             </div>
+
             <div class="form-group">
                 <label for="license">เลขที่ใบประกอบวิชาชีพ:</label>
                 <input type="text" id="license" class="textbox" oninput="validateLicense()">
                 <small id="licenseError" class="error"></small>
             </div>
+
             <div class="form-group">
                 <label for="image">สำเนาใบประกอบวิชาชีพ:</label>
                 <input type="file" id="image" class="textbox" onchange="validateImageInput()">
                 <small id="imageError" class="error"></small>
             </div>
+
             <div class="form-group">
                 <label for="image2">หลักฐานยืนยันการเข้าทำงาน:</label>
                 <input type="file" id="image2" class="textbox" onchange="validateImage2Input()">
                 <small id="image2Error" class="error"></small>
             </div>
+
             <button type="button" class="button" onclick="register()">ยืนยัน</button>
         </form>
+
         <button class="back-button" onclick="window.history.back();">⬅</button>
     </div>
 </body>
