@@ -66,7 +66,7 @@ function cancelBooking() {
 
         alert("การจองถูกยกเลิก");
         clearBookingInfo();
-        window.location.href = "../User/History/History.html";
+        window.location.href = "../../User/History/History.html";
     }
 }
 
