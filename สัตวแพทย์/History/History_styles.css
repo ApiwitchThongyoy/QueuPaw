@@ -32,7 +32,41 @@ li a{
 a{
 text-decoration: none;
 }
-.profile-menu { /*การเลื่อนของตั้งค่าหลัก*/ 
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 5px;
+  border-radius: 25px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  margin-left: -50px;
+  margin-top: 30px;
+  width: 40%;
+  }
+  
+  .search-bar input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 25px;
+  width: 90%;
+  }
+  
+  .search-bar button {
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 15px;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  }
+  
+  .search-container button:hover {
+  background: #0056b3;
+  }
+.profile-menu {
   position: relative;
   display: inline-block;
 }
@@ -189,6 +223,6 @@ img{
 size: 10px;
 }
 .notification-dropdown {
-width: 150px; /* ลดขนาดความกว้าง */
-font-size: 14px; /* ลดขนาดตัวอักษร */
+width: 150px;
+font-size: 14px;
 }
