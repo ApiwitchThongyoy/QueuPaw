@@ -153,14 +153,12 @@ a {
 }
 
 .img {
-  /*รูปในกรอบ*/
   width: 200px;
   height: auto;
   border-radius: 20px;
 }
 
 .title_Thai {
-  /*ชื่อภาษาไทย*/
   font-size: 24px;
   margin-left: 240px;
   margin-top: -150px;
@@ -168,7 +166,6 @@ a {
 }
 
 .title_Eng {
-  /*ชื่อภาษาอังกฤษ*/
   font-size: 20px;
   margin-left: 240px;
   margin-top: -120px;
@@ -176,7 +173,6 @@ a {
 }
 
 .rate {
-  /*การให้คะแนน*/
   font-size: 16px;
   margin-left: 240px;
   margin-top: -65px;
@@ -185,7 +181,6 @@ a {
 }
 
 .contact {
-  /*ช่องทางการติดต่อ*/
   font-size: 18px;
   margin-left: -235px;
   margin-top: 60px;
@@ -196,7 +191,6 @@ a {
 }
 
 .rate_number {
-  /*เรทคะแนน*/
   font-size: 14px;
   color: #02203A;
 }

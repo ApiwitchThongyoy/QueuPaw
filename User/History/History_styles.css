@@ -195,7 +195,7 @@ a {
   text-decoration: none;
 }
 .Pass{
-  color: greenyellow;
+  color: green;
   margin-left: 10px;
 }
 .Wait{
@@ -227,7 +227,7 @@ input{
   color: white; 
   border: none; 
   padding: 10px 35px;
-  font-size: 10px;
+  font-size: 12px;
   border-radius: 5px; 
   cursor: pointer;
   margin-left:9rem; 
