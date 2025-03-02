@@ -38,83 +38,67 @@ li a {
 }
 
 .container {
-  margin: 12%;
+  margin: 10%;
+  margin-left: 320px;
 }
-
-.history-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
 .history-card {
   background: white;
   border-radius: 15px;
   padding: 20px;
-  width: 300px;
-  text-align: center;
+  margin: 10px;
+  width: 800px;
   border: 5px solid #2a72b8;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  height: 300px;
 }
 
 .history-card h2 {
   margin-bottom: 20px;
 }
-
-.history-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+img{
+  width: 190px;
+  border-radius: 5%;  
 }
-
-.history-details p {
+.details-Title{
+    display: flex;
+    font-size: 18px;
+    margin-left: 250px;
+    margin-top: -140px;
+}
+.details-Symptom{
+  display: flex;
   font-size: 18px;
-  margin: 10px 0;
+  margin-left: 250px;
+  margin-top: 15px;
 }
-
-.clinic-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.rating-section {
-  margin-top: 20px;
-}
-
-.stars {
+.details-Day{
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  font-size: 18px;
+  margin-left: 250px;
+  margin-top: 15px;
 }
-
-.star {
-  font-size: 30px;
-  cursor: pointer;
-  color: gold;
+.details-Animal{
+  display: flex;
+  font-size: 18px;
+  margin-left: 250px;
+  margin-top: 15px;
 }
-
-.button-group {
-  margin-top: 20px;
+.details-Time{
+  display: flex;
+  font-size: 18px;
+  margin-left: 400px;
+  margin-top: -23px;
 }
-
-.rebook-btn {
-  background-color: green;
-  color: white;
-  border: none;
-  width: 100%;
-  height: 50px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 20px;
-  cursor: pointer;
+.details-Status{
+  display: flex;
+  font-size: 18px;
+  margin-left: 550px;
+  margin-top: -22px;
 }
-
-.rebook-btn:hover {
-  background-color: darkgreen;
+.details{
+  font-weight: lighter;
+  margin-left: 10px;
 }
-
 .profile-menu {
   position: relative;
   display: inline-block;
@@ -207,160 +191,29 @@ li a {
   display: grid;
   gap: 25px;
 }
-
-.item {
-  background: white;
-  height: fit-content;
-  padding-bottom: 2.5rem;
-  padding-top: 1rem;
-  padding-right: 5rem;
-  padding-left: 1rem;
-  width: 550px;
-  margin: auto;
-  border-radius: 20px;
-  display: grid;
-  place-content: start;
-}
-
 a {
   text-decoration: none;
 }
-
-.img {
-  width: 200px;
-  height: auto;
-  border-radius: 20px;
+.Pass{
+  color: greenyellow;
+  margin-left: 10px;
 }
-
-.title_Thai {
+.Wait{
+  color: #FFA500;
+  margin-left: 10px;
+}
+.Cancel{
+  color: red;
+  margin-left: 10px;
+}
+.review{
   font-size: 24px;
-  margin-left: 240px;
-  margin-top: -150px;
-  color: #02203A;
-}
-
-.title_Eng {
-  font-size: 20px;
-  margin-left: 240px;
-  margin-top: -120px;
-  color: #02203A;
-}
-
-.rate {
-  font-size: 16px;
-  margin-left: 240px;
-  margin-top: -65px;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact {
-  font-size: 18px;
-  margin-left: -235px;
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: #02203A;
-}
-
-.rate_number {
-  font-size: 14px;
-  color: #02203A;
-}
-
-.button {
-  background: red;
-  color: white;
-  border: none;
-  padding: 10px 35px;
-  font-size: 28px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 12rem;
-  position: absolute;
-  margin-top: -3rem;
-}
-
-.Time {
-  font-size: 14px;
-  margin-left: 240px;
-  margin-top: -85px;
-  color: #02203A;
-}
-
-.rate_History {
-  display: flex;
-  font-size: 16px;
-  margin-left: 240px;
-  margin-top: -85px;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.button_rate {
-  background: red;
-  color: white;
-  border: none;
-  padding: 10px 35px;
-  font-size: 28px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 10rem;
-  position: absolute;
-  margin-top: -60px;
-}
-
-.rate_star {
-  font-size: 45px;
-  margin-left: -220px;
-  margin-top: 60px;
-}
-
-.appointment-card {
-  display: flex;
+  margin-left: 20px;
+  margin-top: 40px;
   background: white;
   border-radius: 15px;
-  padding: 150px;
-  width: 400px;
-  height: 100px;
-  text-align: center;
-  border: 5px solid #2a72b8;
+  padding: 10px;
+  width: 300px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  margin-left: 400px;
-  margin-top: 200px;
-}
-
-.clinic-logo {
-  width: 50px;
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  background: white;
-  padding: 5px;
-  border-radius: 50%;
-}
-
-.cancel-btn {
-  background-color: red;
-  color: white;
-  border: none;
-  width: 395px;
-  height: 50px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 20px;
-  cursor: pointer;
-  margin-top: 230px;
-  margin-left: -450px;
-}
-
-.cancel-btn:hover {
-  background-color: darkred;
-}
-
-.appointment_font {
-  font-size: 24px;
-  margin-top: -100px;
-  margin-left: -40px;
+  height: 80px;
 }
