@@ -38,7 +38,7 @@ li a {
 }
 
 .container {
-  margin: 10%;
+  margin: 5%;
   margin-left: 320px;
 }
 .history-card {
@@ -164,28 +164,28 @@ img{
   margin-left: -50px;
   margin-top: 30px;
   width: 40%;
-}
-
-.search-bar input {
+  }
+  
+  .search-bar input {
   border: none;
   outline: none;
   padding: 5px;
   font-size: 14px;
   border-radius: 25px;
   width: 90%;
-}
-
-.search-bar button {
+  }
+  
+  .search-bar button {
   border: none;
   color: rgb(0, 0, 0);
   padding: 10px 15px;
   border-radius: 0 25px 25px 0;
   cursor: pointer;
-}
-
-.search-container button:hover {
+  }
+  
+  .search-container button:hover {
   background: #0056b3;
-}
+  }
 
 .container-grid {
   display: grid;
@@ -209,11 +209,53 @@ a {
 .review{
   font-size: 24px;
   margin-left: 20px;
-  margin-top: 40px;
+  margin-top: 20px;
   background: white;
   border-radius: 15px;
-  padding: 10px;
-  width: 300px;
+  padding: 5px;
+  width: 270px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  height: 80px;
+  height: 120px;
+}
+input{
+  width: 200px;
+  border-radius: 10px;
+  margin-left: 25px;
+}
+.confirm{
+  background: red; 
+  color: white; 
+  border: none; 
+  padding: 10px 35px;
+  font-size: 10px;
+  border-radius: 5px; 
+  cursor: pointer;
+  margin-left:9rem; 
+  position: absolute;
+  margin-top: 1rem; 
+}
+.rate{
+  margin-left: 55px;
+}
+.reason-box{
+  font-size: 16px;
+  margin-left: -710px;
+  margin-top: 50px;
+  background: white;
+  border-radius: 15px;
+  padding: 5px;
+  width: 400px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  height: 120px;
+}
+.reason-User{
+  font-size: 16px;
+  margin-left: -690px;
+  margin-top: 50px;
+  background: white;
+  border-radius: 15px;
+  padding: 5px;
+  width: 400px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  height: 120px;
 }
