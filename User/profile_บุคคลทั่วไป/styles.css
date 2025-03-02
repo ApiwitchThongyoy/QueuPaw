@@ -171,8 +171,8 @@ margin-left:12rem;
 position: absolute;
 margin-top: 4rem; 
 }
-input[type="Profile"] {
+input{
   font-size: 20px;
-  border-radius: 24px;
+  border-radius: 5px;
   padding: -5px;
 }

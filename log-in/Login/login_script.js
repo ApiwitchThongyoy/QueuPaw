@@ -54,11 +54,11 @@ function login() {
         localStorage.setItem("registeredpassword", password);
         localStorage.setItem("registeredaccount", "doctor");
         alert("ยินดีต้อนรับสู่ระบบแพทย์");
-        window.location.href = "../Main_สัตวแพทย์/Main.html";
-    } else if (email === registeredemail && password === registeredpassword) {
+        window.location.href = "../../สัตวแพทย์/Main/Main.html";
+    } else if (email === 'User@gmail.com' && password === '12345678') {
         console.log("Registered user login successful");
         alert("ยินดีต้อนรับสู่ระบบ");
-        window.location.href = "../Main_บุคคลทั่วไป/Main.html";
+        window.location.href = "../../User/Main/Main.html";
     } else if (email !== registeredemail) {
         console.log("No registered account found");
         alert("ไม่มีบัญชีที่ลงทะเบียนในระบบ กรุณาลงทะเบียนใหม่");

@@ -87,7 +87,7 @@ padding-bottom: 2.5rem;
 padding-top: 1rem;
 padding-right: 5rem;
 padding-left: 1rem;
-width: 550px;
+width: 700px;
 margin: auto;
 border-radius: 20px;
 display: grid;
@@ -196,6 +196,7 @@ color: #02203A;
   margin-left:12rem; 
   position: absolute;
   margin-top: -3rem;
+  margin-left:350px;
   
 }
 .Time{
