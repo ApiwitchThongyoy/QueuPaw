@@ -58,18 +58,18 @@ document.addEventListener("DOMContentLoaded", function () {
 // Function to determine status class
 function getStatusClass(status) {
     return {
-        completed: "Pass",
-        doctorCancel: "doctorCancel",
+        ยกเลิก: "doctorCancel",
         userCancel: "userCancel",
+        "รักษาสำเร็จ": "Pass",
     }[status] || "Wait";
 }
 
 // Function to determine status text
 function getStatusText(status) {
     return {
-        completed: "รักษาสำเร็จ",
-        doctorCancel: "สัตวแพทย์ยกเลิก",
-        userCancel: "ผู้ใช้ยกเลิก",
+        ยกเลิก: "สัตวแพทย์ยกเลิกคิว",
+        userCancel: "ผู้ใช้ยกเลิกคิว",
+        "รักษาสำเร็จ": "รักษาสำเร็จ",
     }[status] || "กำลังรอคิวรักษา";
 }
 
