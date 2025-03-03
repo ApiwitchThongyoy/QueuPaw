@@ -34,15 +34,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // Handle cancellation
         appointmentDiv.querySelector('.cancel-btn').addEventListener('click', function () {
             const userCancelReason = prompt("กรุณากรอกเหตุผลในการยกเลิก:");
-            if (!userCancelReason) return; // หยุดทำงานหากผู้ใช้ไม่กรอกเหตุผล
+            if (!userCancelReason) return; 
         
-            cancelBooking(bookingInfo, userCancelReason); // ส่งเหตุผลไปยังฟังก์ชัน
+            cancelBooking(bookingInfo, userCancelReason); 
             appointmentsContainer.removeChild(appointmentDiv);
         });
     }
 });
 
-function cancelBooking(bookingInfo,) {  // เพิ่ม userCancelReason เป็น parameter
+function cancelBooking(bookingInfo, userCancelReason) {  // เพิ่ม userCancelReason เป็น parameter
     const userCancel = {
         clinicName: bookingInfo.clinicName,
         reason: bookingInfo.reason,
@@ -50,6 +50,7 @@ function cancelBooking(bookingInfo,) {  // เพิ่ม userCancelReason เ�
         animalType: bookingInfo.animalType,
         time: bookingInfo.time,
         status: "userCancel",
+        userCancelReason: userCancelReason,
     };
 
     let history = JSON.parse(localStorage.getItem('history')) || [];

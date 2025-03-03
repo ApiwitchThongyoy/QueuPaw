@@ -37,7 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="details-CancelReason">
                                 <strong>เหตุผลในการยกเลิกโดยสัตวแพทย์:</strong> <div class="details">${history.cancelReason}</div>
                             </div>
-                        ` : ""}
+                            ` : ""}
+                            ${(history.status === "userCancel" && history.userCancelReason) ? `
+                                <div class="details-CancelReason">
+                                    <strong>เหตุผลในการยกเลิกโดยผู้ใช้:</strong> <div class="details">${history.userCancelReason}</div>
+                                </div>
+                            ` : ""}
                         ${history.status === "รักษาสำเร็จ" ? getReviewSection(index) : ""}
                     </div>
                 </div>
