@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const appointmentDiv = document.createElement("div");
             appointmentDiv.className = "appointment";
             appointmentDiv.innerHTML = `
-                <h2>ประวัติการจอง</h2>
                 <div class="history-card">
                     <div>
                         <img src="../History/img/Hospital.jpeg">
