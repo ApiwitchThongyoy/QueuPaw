@@ -19,11 +19,11 @@ function validateForm() {
         animalType,
         time
     };
-
+    
     localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
     alert('การจองเสร็จแล้ว');
-    window.location.href = "../Appointment/Appointment.html"; // Redirect to Appointment.html
-    return false; // Prevent default form submission
+    window.location.href = "../Appointment/Appointment.html"; 
+    return false; 
 }
 
 function loadUsername() {
