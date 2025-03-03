@@ -15,3 +15,6 @@ function toggleMenu() {
 function bookNow(clinicName) {
     window.location.href = `../Booking/Booking.html?clinicName=${encodeURIComponent(clinicName)}`;
 }
+function bookkclinic(clinicName) {
+    window.location.href = `../review/index.html?clinicName=${encodeURIComponent(clinicName)}`;
+}
