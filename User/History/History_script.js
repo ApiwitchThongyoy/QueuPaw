@@ -33,16 +33,16 @@ document.addEventListener("DOMContentLoaded", function () {
                             <strong>สถานะ:</strong>
                             <div class="${getStatusClass(history.status)}">${getStatusText(history.status)}</div>
                         </div>
-                           ${(history.status === "ยกเลิก" && history.cancelReason) ? `
+                        ${(history.status === "ยกเลิก" && history.cancelReason) ? `
                             <div class="details-CancelReason">
                                 <strong>เหตุผลในการยกเลิกโดยสัตวแพทย์:</strong> <div class="details">${history.cancelReason}</div>
                             </div>
-                            ` : ""}
-                            ${(history.status === "userCancel" && history.userCancelReason) ? `
-                                <div class="details-CancelReason">
-                                    <strong>เหตุผลในการยกเลิกโดยผู้ใช้:</strong> <div class="details">${history.userCancelReason}</div>
-                                </div>
-                            ` : ""}
+                        ` : ""}
+                        ${(history.status === "userCancel" && history.userCancelReason) ? `
+                            <div class="details-CancelReason">
+                                <strong>เหตุผลในการยกเลิกโดยผู้ใช้:</strong> <div class="details">${history.userCancelReason}</div>
+                            </div>
+                        ` : ""}
                         ${history.status === "รักษาสำเร็จ" ? getReviewSection(index) : ""}
                     </div>
                 </div>
@@ -50,16 +50,20 @@ document.addEventListener("DOMContentLoaded", function () {
             historyContainer.appendChild(appointmentDiv);
         });
 
-        // Event delegation for dynamically added elements (Review Submission)
+        // Event delegation for dynamically added elements (Review Submission & Star Rating)
         historyContainer.addEventListener("click", function (event) {
             if (event.target.closest(".confirm")) {
                 const reviewContainer = event.target.closest(".review");
                 const reviewInput = reviewContainer.querySelector("input").value.trim();
-                if (reviewInput) {
-                    submitReview(reviewInput);
+                const selectedStars = reviewContainer.querySelectorAll(".bxs-star.selected").length;
+
+                if (reviewInput && selectedStars > 0) {
+                    submitReview(reviewInput, selectedStars);
                 } else {
-                    alert("กรุณากรอกรีวิวก่อนส่ง");
+                    alert("กรุณากรอกรีวิวและเลือกดาวก่อนส่ง");
                 }
+            } else if (event.target.classList.contains("bxs-star")) {
+                updateStarRating(event.target);
             }
         });
     }
@@ -83,16 +87,16 @@ function getStatusText(status) {
     }[status] || "กำลังรอคิวรักษา";
 }
 
-// Function to generate review section
+// Function to generate review section with interactive stars
 function getReviewSection(index) {
     return `
         <div class="review" data-index="${index}">
             <div class="rate">
-                <i class='bx bxs-star' style='color:#d8fd00'></i>
-                <i class='bx bxs-star' style='color:#d8fd00'></i>
-                <i class='bx bxs-star' style='color:#d8fd00'></i>
-                <i class='bx bxs-star' style='color:#d8fd00'></i>
-                <i class='bx bxs-star' style='color:#d8fd00'></i> 
+                <i class='bx bxs-star' data-value="1"></i>
+                <i class='bx bxs-star' data-value="2"></i>
+                <i class='bx bxs-star' data-value="3"></i>
+                <i class='bx bxs-star' data-value="4"></i>
+                <i class='bx bxs-star' data-value="5"></i> 
             </div>  
             <div><input type="text" placeholder="เขียนรีวิวของคุณ"></div>
             <div class="confirm">              
@@ -102,12 +106,28 @@ function getReviewSection(index) {
 }
 
 // Function to handle review submission
-function submitReview(reviewText) {
-    // Save the review to localStorage
+function submitReview(reviewText, starRating) {
     let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    reviews.push({ review: reviewText, date: new Date().toLocaleString() });
+    reviews.push({ review: reviewText, stars: starRating, date: new Date().toLocaleString() });
     localStorage.setItem("reviews", JSON.stringify(reviews));
 
     alert("รีวิวถูกส่งเรียบร้อย");
     window.location.href = "../review/index.html";
+}
+
+// Function to handle star rating selection
+function updateStarRating(selectedStar) {
+    const allStars = selectedStar.parentElement.querySelectorAll(".bxs-star");
+    const selectedValue = parseInt(selectedStar.getAttribute("data-value"), 10);
+
+    allStars.forEach(star => {
+        const starValue = parseInt(star.getAttribute("data-value"), 10);
+        if (starValue <= selectedValue) {
+            star.classList.add("selected");
+            star.style.color = "#d8fd00"; // สีเหลืองเมื่อถูกเลือก
+        } else {
+            star.classList.remove("selected");
+            star.style.color = "#ccc"; // สีเทาถ้าไม่ถูกเลือก
+        }
+    });
 }
