@@ -18,3 +18,7 @@ function bookNow(clinicName) {
 function bookkclinic(clinicName) {
     window.location.href = `../review/index.html?clinicName=${encodeURIComponent(clinicName)}`;
 }
+function goToReview(clinicName) {
+    localStorage.setItem("selectedClinic", clinicName);
+    window.location.href = "../../User/review/index.html";
+}

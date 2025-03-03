@@ -78,7 +78,7 @@ function getStatusClass(status) {
 function getStatusText(status) {
     return {
         "ยกเลิก": "สัตวแพทย์ยกเลิกคิว",
-        userCancel: "ผู้ใช้ยกเลิกคิว",
+        userCancel: "คุณได้ยกเลิกคิว",
         "รักษาสำเร็จ": "รักษาสำเร็จ",
     }[status] || "กำลังรอคิวรักษา";
 }
@@ -109,5 +109,5 @@ function submitReview(reviewText) {
     localStorage.setItem("reviews", JSON.stringify(reviews));
 
     alert("รีวิวถูกส่งเรียบร้อย");
-    window.location.href = "../../review/index.html";
+    window.location.href = "../review/index.html";
 }
