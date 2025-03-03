@@ -203,7 +203,11 @@ a {
   color: #FFA500;
   margin-left: 10px;
 }
-.Cancel{
+.userCancel{
+  color: red;
+  margin-left: 10px;
+}
+.doctorCancel{
   color: red;
   margin-left: 10px;
 }

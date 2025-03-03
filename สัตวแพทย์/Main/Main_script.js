@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Add event listeners to the buttons
         appointmentDiv.querySelector('.confirm').addEventListener('click', function() {
             saveBooking(bookingInfo, "รักษาสำเร็จ");
+            statusElement.textContent = "รักษาสำเร็จ";
             appointmentsContainer.removeChild(appointmentDiv);
             clearBookingInfo();
         });
@@ -37,8 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
             if (cancelReason) {
                 bookingInfo.cancelReason = cancelReason;
                 saveBooking(bookingInfo, "ยกเลิก");
+                statusElement.textContent = "ยกเลิก (เหตุผล: " + cancelReason + ")";
                 appointmentsContainer.removeChild(appointmentDiv);
                 clearBookingInfo();
+
             }
         });
     }
@@ -50,9 +53,9 @@ function saveBooking(bookingInfo, status) {
     history.push(bookingInfo);
     localStorage.setItem('history', JSON.stringify(history));
 
-    if (status === "รักษาสำเร็จ") {
+    if (status === "completed") {
         alert("การรักษาสำเร็จ");
-    } else {
+    } else if(status === "doctorCancel"){
         alert("การจองถูกยกเลิก");
     }
     window.location.href = "../../สัตวแพทย์/History/History.html";
