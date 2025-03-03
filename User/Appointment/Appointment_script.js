@@ -1,9 +1,11 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var userName = localStorage.getItem('username');
     var usernameElement = document.getElementById("username");
+
     if (usernameElement && userName) {
         usernameElement.textContent = userName;
     }
+
     const bookingInfo = JSON.parse(localStorage.getItem('bookingInfo')) || {};
 
     const appointmentsContainer = document.getElementById("appointmentsContainer");
@@ -26,40 +28,37 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             </div>
         `;
+
         appointmentsContainer.appendChild(appointmentDiv);
-        appointmentDiv.querySelector('.cancel-btn').addEventListener('click', function() {  
-            saveBooking(bookingInfo, "ยกเลิก()");
+
+        // Handle cancellation
+        appointmentDiv.querySelector('.cancel-btn').addEventListener('click', function () {
+            const userCancelReason = prompt("กรุณากรอกเหตุผลในการยกเลิก:");
+            if (!userCancelReason) return; // Stop if user cancels the prompt
+            cancelBooking(bookingInfo);
             appointmentsContainer.removeChild(appointmentDiv);
             clearBookingInfo();
         });
     }
 });
 
-function saveBooking(bookingInfo, status) {
-    bookingInfo.status = status;
+function cancelBooking(bookingInfo, userCancelReason) {
+
+    const userCancel = {
+        clinicName: bookingInfo.clinicName,
+        reason: bookingInfo.reason,
+        date: bookingInfo.date,
+        animalType: bookingInfo.animalType,
+        time: bookingInfo.time,
+        status: "userCancel",
+        userReason: userCancelReason
+    };
+
     let history = JSON.parse(localStorage.getItem('history')) || [];
-    history.push(bookingInfo);
+    history.push(userCancel);
     localStorage.setItem('history', JSON.stringify(history));
+    clearBookingInfo();
 
-    if (status === "ยกเลิก") {
-        const clinicName = document.getElementById('clinicName').textContent;
-        const reason = document.getElementById('reason').textContent;
-        const date = document.getElementById('date').textContent;
-        const animalType = document.getElementById('animalType').textContent;
-        const time = document.getElementById('time').textContent;
-
-        const bookingInfo = {
-            clinicName,
-            reason,
-            date,
-            animalType,
-            time,
-            status: "cancelled",
-            cancelReason
-        };
-
-        
-    }
     alert("การจองถูกยกเลิก");
     window.location.href = "../../user/History/History.html";
 }
