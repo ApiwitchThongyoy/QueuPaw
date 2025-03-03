@@ -33,7 +33,12 @@ document.addEventListener("DOMContentLoaded", function () {
                             <strong>สถานะ:</strong>
                             <div class="${getStatusClass(history.status)}">${getStatusText(history.status)}</div>
                         </div>
-                        ${history.status === "completed" ? getReviewSection(index) : ""}
+                           ${(history.status === "ยกเลิก" && history.cancelReason) ? `
+                            <div class="details-CancelReason">
+                                <strong>เหตุผลในการยกเลิกโดยสัตวแพทย์:</strong> <div class="details">${history.cancelReason}</div>
+                            </div>
+                        ` : ""}
+                        ${history.status === "รักษาสำเร็จ" ? getReviewSection(index) : ""}
                     </div>
                 </div>
             `;
@@ -58,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Function to determine status class
 function getStatusClass(status) {
     return {
-        ยกเลิก: "doctorCancel",
+        "ยกเลิก": "doctorCancel",
         userCancel: "userCancel",
         "รักษาสำเร็จ": "Pass",
     }[status] || "Wait";
@@ -67,7 +72,7 @@ function getStatusClass(status) {
 // Function to determine status text
 function getStatusText(status) {
     return {
-        ยกเลิก: "สัตวแพทย์ยกเลิกคิว",
+        "ยกเลิก": "สัตวแพทย์ยกเลิกคิว",
         userCancel: "ผู้ใช้ยกเลิกคิว",
         "รักษาสำเร็จ": "รักษาสำเร็จ",
     }[status] || "กำลังรอคิวรักษา";
@@ -99,5 +104,5 @@ function submitReview(reviewText) {
     localStorage.setItem("reviews", JSON.stringify(reviews));
 
     alert("รีวิวถูกส่งเรียบร้อย");
-    window.location.href = "../../review/review.html";
+    window.location.href = "../../review/index.html";
 }
