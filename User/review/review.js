@@ -1,61 +1,75 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let userName = localStorage.getItem("userName") || "ผู้ใช้ทั่วไป"; // ถ้าไม่มีข้อมูล ให้เป็นค่าเริ่มต้น
-    document.getElementById("username").textContent = userName;
-    loadReviews(); // โหลดรีวิวที่เคยบันทึกไว้ก่อนหน้านี้
+    loadClinicName();  // โหลดชื่อคลินิก
+    loadReviews();     // โหลดรีวิว
 });
 
-// ฟังก์ชันดึงข้อมูลรีวิวจาก localStorage และแสดงบนหน้าเว็บ
-function loadReviews() {
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    const reviewContainer = document.querySelector(".review-container");
+// ฟังก์ชันดึงชื่อคลินิกจาก URL
+function loadClinicName() {
+    let urlParams = new URLSearchParams(window.location.search);
+    let clinicName = urlParams.get("clinic") || "ไม่พบข้อมูลคลินิก";
+    document.getElementById("clinicName").innerText = clinicName;
+}
 
-    reviewContainer.innerHTML = ""; // ล้างค่าก่อนโหลดใหม่
+// ฟังก์ชันดึงข้อมูลรีวิว
+async function loadReviews() {
+    try {
+        let response = await fetch("https://your-api.com/reviews"); // เปลี่ยนเป็น API จริง
+        let reviews = await response.json();
+        displayReviews(reviews);
+    } catch (error) {
+        console.error("Error loading reviews:", error);
+        document.getElementById("reviewContainer").innerHTML = "<p>ไม่สามารถโหลดรีวิวได้</p>";
+    }
+}
+
+// ฟังก์ชันแสดงรีวิวในหน้าเว็บ
+function displayReviews(reviews) {
+    let container = document.getElementById("reviewContainer");
+    container.innerHTML = ""; // เคลียร์ข้อมูลเก่า
+
     reviews.forEach(review => {
-        displayReview(review);
+        let reviewElement = document.createElement("div");
+        reviewElement.classList.add("review-item");
+
+        reviewElement.innerHTML = `
+            <div class="review-header">
+                <strong>${review.username}</strong>
+                <span class="rating">${generateStars(review.rating)}</span>
+            </div>
+            <p>${review.comment}</p>
+        `;
+
+        container.appendChild(reviewElement);
     });
 }
 
-// ฟังก์ชันเพิ่มรีวิวใหม่
-function submitReview() {
-    const username = document.getElementById("usernameInput").value.trim() || "ผู้ใช้ทั่วไป";
-    const reviewText = document.getElementById("reviewInput").value.trim() || "ไม่มีความคิดเห็น";
-    const starRating = parseInt(document.getElementById("starRating").value, 10) || 0;
+// ฟังก์ชันสร้างดาวรีวิว ⭐⭐⭐⭐
+function generateStars(rating) {
+    let stars = "";
+    for (let i = 0; i < 5; i++) {
+        stars += i < rating ? "⭐" : "☆";
+    }
+    return stars;
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    const reviewContainer = document.getElementById("reviewContainer");
 
-    if (!reviewText || reviewText === "ไม่มีความคิดเห็น") {
-        alert("กรุณากรอกรีวิวก่อนส่ง");
+    if (reviews.length === 0) {
+        reviewContainer.innerHTML = "<p>ไม่มีรีวิวที่จะแสดง</p>";
         return;
     }
 
-    const newReview = {
-        username: username,
-        review: reviewText,
-        stars: starRating,
-        date: new Date().toLocaleDateString("th-TH"),
-    };
+    reviews.forEach(review => {
+        const reviewDiv = document.createElement("div");
+        reviewDiv.className = "review-card";
+        reviewDiv.innerHTML = `
+            <div class="clinic-name"><strong>คลินิก:</strong> ${review.clinic || "ไม่พบข้อมูลคลินิก"}</div>
+            <div class="stars"><strong>ให้คะแนน:</strong> ${"⭐".repeat(review.stars)}</div>
+            <div class="comment"><strong>รีวิว:</strong> ${review.review}</div>
+            <div class="date"><strong>วันที่:</strong> ${review.date}</div>
+        `;
+        reviewContainer.appendChild(reviewDiv);
+    });
+});
 
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    reviews.push(newReview);
-    localStorage.setItem("reviews", JSON.stringify(reviews));
-
-    displayReview(newReview);
-    document.getElementById("reviewInput").value = ""; // เคลียร์ช่องป้อนข้อมูล
-}
-
-// ฟังก์ชันแสดงผลรีวิวในหน้าเว็บ
-function displayReview(review) {
-    const reviewContainer = document.querySelector(".review-container");
-
-    const reviewDiv = document.createElement("div");
-    reviewDiv.className = "review-container-grid";
-    reviewDiv.innerHTML = `
-        <div class="review-item">
-            <div class="title_review">${review.username || "ผู้ใช้ทั่วไป"}</div>
-            <div class="review-star">${"⭐".repeat(review.stars || 0)}</div>
-            <div class="rate-score">${review.stars || "0"}</div>
-        </div>
-        <div class="detail-review">${review.review || "ไม่มีความคิดเห็น"}</div>
-        <div class="review-day">${review.date || new Date().toLocaleDateString("th-TH")}</div>
-    `;
-
-    reviewContainer.prepend(reviewDiv); // แสดงรีวิวใหม่ที่ด้านบน
-}
