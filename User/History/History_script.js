@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    loadUsername();
     // Retrieve history data (ensure it's an array)
     const historyInfo = JSON.parse(localStorage.getItem("history")) || [];
 
@@ -130,4 +131,10 @@ function updateStarRating(selectedStar) {
             star.style.color = "#ccc"; // สีเทาถ้าไม่ถูกเลือก
         }
     });
+}
+function loadUsername() {
+    const username = localStorage.getItem('username');
+    if (username) {
+        document.getElementById('username').innerText = username; // ใช้ id="username"
+    }
 }
