@@ -40,26 +40,25 @@ document.getElementById("toggle-password").addEventListener("click", function ()
 function login() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
-    let registeredemail = localStorage.getItem("registeredemail");
-    let registeredpassword = localStorage.getItem("registeredpassword");
+
+    let registeredEmail = localStorage.getItem("email");
+    let registeredPassword = localStorage.getItem("password");
 
     console.log("Email entered:", email);
     console.log("Password entered:", password);
-    console.log("Registered email:", registeredemail);
-    console.log("Registered password:", registeredpassword);
+    console.log("Registered email:", registeredEmail);
+    console.log("Registered password:", registeredPassword);
 
     if (email === 'doctor@gmail.com' && password === '12345678') {
         console.log("Doctor login successful");
-        localStorage.setItem("registeredemail", email);
-        localStorage.setItem("registeredpassword", password);
-        localStorage.setItem("registeredaccount", "doctor");
+        localStorage.setItem("accountType", "doctor");
         alert("ยินดีต้อนรับสู่ระบบแพทย์");
         window.location.href = "../../สัตวแพทย์/Main/Main.html";
-    } else if (email === 'User@gmail.com' && password === '12345678') {
-        console.log("Registered user login successful");
+    } else if (email === registeredEmail && password === registeredPassword) {
+        console.log("User login successful");
         alert("ยินดีต้อนรับสู่ระบบ");
         window.location.href = "../../User/Main/Main.html";
-    } else if (email !== registeredemail) {
+    } else if (email !== registeredEmail) {
         console.log("No registered account found");
         alert("ไม่มีบัญชีที่ลงทะเบียนในระบบ กรุณาลงทะเบียนใหม่");
         window.location.href = "../Register/Register.html";
