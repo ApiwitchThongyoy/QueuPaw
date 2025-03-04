@@ -209,8 +209,8 @@ li a{
 .review-text{
     display: block;
     font-size: 40px;
-    margin-top: -50px;
-    margin-left: 160px;
+    margin-top: -80px;
+    margin-left: 380px;
 }
 .detail-review{
     background: #ffff;
@@ -224,8 +224,8 @@ li a{
 }
 .review-day{
     font-size:24px;
-    margin-left: 1100px;
-    margin-top: -50px;
+    margin-left: 570px;
+    margin-top: -40px;
 }
 .rate-score{
     font-size: 30px;
