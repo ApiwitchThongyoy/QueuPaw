@@ -15,20 +15,20 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', (event) => {
     // Retrieve data from local storage
     const doctorname = localStorage.getItem('doctorname');
-    const email = localStorage.getItem('email');
+    const doctoremail = localStorage.getItem('doctoremail');
     const license = localStorage.getItem('license');
     const workingName = localStorage.getItem('workingName');
 
     // Populate the fields with the retrieved data
     const doctornameInput = document.getElementById('doctornameInput');
     const doctornameLink = document.getElementById('doctornameLink');
-    const emailInput = document.getElementById('emailInput');
+    const doctoremailInput = document.getElementById('doctoremailInput');
     const licenseInput = document.getElementById('licenseInput');
     const workingNameInput = document.getElementById('workingName');
 
     if (doctornameInput) doctornameInput.value = doctorname || '';
     if (doctornameLink) doctornameLink.textContent = doctorname || 'xxxx xxxxx';
-    if (emailInput) emailInput.value = email || '';
+    if (doctoremailInput) doctoremailInput.value = doctoremail || '';
     if (licenseInput) licenseInput.value = license || '';
     if (workingNameInput) workingNameInput.value = workingName || '';
 });
@@ -46,7 +46,7 @@ function saveProfile() {
 }
 
 function toggleEdit() {
-    const fields = ['doctornameInput', 'emailInput', 'licenseInput', 'workingName'];
+    const fields = ['doctornameInput', 'doctoremailInput', 'licenseInput', 'workingName'];
     fields.forEach(field => {
         const input = document.getElementById(field);
         if (input) {
@@ -58,14 +58,14 @@ function toggleEdit() {
 }
 
 function saveChanges() {
-    const doctorname = document.getElementById('doctornameInput').value;
-    const email = document.getElementById('emailInput').value;
+    const doctorname = document.getElementById('doctorenameInput').value;
+    const doctoremail = document.getElementById('doctoremailInput').value;
     const license = document.getElementById('licenseInput').value;
     const workingName = document.getElementById('workingName').value;
 
     // Save the updated data to local storage
     localStorage.setItem('doctorname', doctorname);
-    localStorage.setItem('email', email);
+    localStorage.setItem('doctoremail', doctoremail);
     localStorage.setItem('license', license);
     localStorage.setItem('workingName', workingName);
 

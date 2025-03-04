@@ -19,12 +19,19 @@ function validateForm() {
         animalType,
         time
     };
-    
-    localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
+    const timeSelect = document.getElementById("time");
+
+    if (timeSelect.value === "" || timeSelect.options[timeSelect.selectedIndex].disabled) {
+        alert("กรุณาเลือกช่วงเวลาที่ว่าง");
+        return false;
+    }else{
+        localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
     alert('การจองเสร็จแล้ว');
     window.location.href = "../Appointment/Appointment.html"; 
-    return false; 
+    return false;
+    }
 }
+    
 
 function loadUsername() {
     const username = localStorage.getItem('username');
@@ -113,12 +120,4 @@ function checkAvailability() {
 document.getElementById("date").addEventListener("change", checkAvailability);
 
 // ตรวจสอบฟอร์มก่อนส่ง
-function validateForm() {
-    const timeSelect = document.getElementById("time");
 
-    if (timeSelect.value === "" || timeSelect.options[timeSelect.selectedIndex].disabled) {
-        alert("กรุณาเลือกช่วงเวลาที่ว่าง");
-        return false;
-    }
-    return true;
-}

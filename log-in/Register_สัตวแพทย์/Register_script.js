@@ -19,24 +19,24 @@ function validateNumber() {
     }
 }
 
-function validateEmail() {
-    const email = document.getElementById('email').value;
-    const emailError = document.getElementById('emailError');
+function validatedoctoremail() {
+    const doctoremail = document.getElementById('doctoremail').value;
+    const doctoremailError = document.getElementById('doctoremailError').textContent;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        emailError.textContent = 'กรุณากรอกอีเมลที่ถูกต้อง';
+    if (!emailPattern.test(doctoremail)) {
+        doctoremailError.textContent = 'กรุณากรอกอีเมลที่ถูกต้อง';
     } else {
-        emailError.textContent = '';
+        doctoremailError.textContent = '';
     }
 }
 
-function validatePassword() {
-    const password = document.getElementById('password').value;
-    const passwordError = document.getElementById('passwordError');
-    if (password.length < 8) {
-        passwordError.textContent = 'รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร';
+function validatedoctorpassword() {
+    const doctorpassword = document.getElementById('doctorpassword').value;
+    const doctorpasswordError = document.getElementById('doctorpasswordError');
+    if (doctorpassword.length < 8) {
+        doctorpasswordError.textContent = 'รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร';
     } else {
-        passwordError.textContent = '';
+        doctorpasswordError.textContent = '';
     }
 }
 
@@ -82,38 +82,38 @@ function sendOtp() {
 
 function register() {
     try {
-        validateEmail();
+        validatedoctoremail();
         validateOtp();
-        validatePassword();
+        validatedoctorpassword();
         validatedoctorName();
         validateNumber();
 
-        const email = document.getElementById('email').value;
+        const doctoremail = document.getElementById('doctoremail').value;
         const otp = document.getElementById('otp').value;
-        const password = document.getElementById('password').value;
+        const doctorpassword = document.getElementById('doctorpassword').value;
         const name = document.getElementById('doctorname').value;
         const number = document.getElementById('number').value;
 
-        const emailError = document.getElementById('emailError').textContent;
-        const otpError = document.getElementById('otpError').textContent;
-        const passwordError = document.getElementById('passwordError').textContent;
-        const nameError = document.getElementById('doctornameError').textContent;
-        const numberError = document.getElementById('numberError').textContent;
+        const doctoremailError = document.getElementById('doctoremailError')?.textContent || '';
+        const otpError = document.getElementById('otpError')?.textContent || '';
+        const doctorpasswordError = document.getElementById('doctorpasswordError')?.textContent || '';
+        const nameError = document.getElementById('doctornameError')?.textContent || '';
+        const numberError = document.getElementById('numberError')?.textContent || '';
 
-        if (!email || !otp || !password || !name || !number) {
+        if (!doctoremail || !otp || !doctorpassword || !name || !number) {
             alert('กรุณากรอกข้อมูลให้ครบถ้วน');
             return;
         }
 
-        if (emailError || otpError || passwordError || nameError || numberError) {
+        if (doctoremailError || otpError || doctorpasswordError || nameError || numberError) {
             alert('กรุณากรอกข้อมูลให้ถูกต้อง');
             return;
         }
 
         // Save the data to local storage
-        localStorage.setItem('email', email);
+        localStorage.setItem('doctoremail', doctoremail);
         localStorage.setItem('otp', otp);
-        localStorage.setItem('password', password);
+        localStorage.setItem('doctorpassword', doctorpassword);
         localStorage.setItem('doctorname', name);
         localStorage.setItem('number', number);
 

@@ -2,14 +2,19 @@ function validateEmail() {
     let inputemail = document.getElementById("email");
     let erroremail = document.getElementById("email-error");
     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailPattern.test(inputemail.value) || inputemail.value === "") {
+
+    if (inputemail.value === "") {
+        inputemail.style.border = "1px solid #ccc"; // ค่า default
+        erroremail.innerText = "";
+    } else if (emailPattern.test(inputemail.value)) {
         inputemail.style.border = "1px solid green";
-        erroremail.innerText = ""
+        erroremail.innerText = "";
     } else {
         inputemail.style.border = "2px solid red";
-        errorEmail.innerText = "กรุณากรอกอีเมลให้ถูกต้อง"
+        erroremail.innerText = "กรุณากรอกอีเมลให้ถูกต้อง";
     }
 }
+
 function validatePassword() {
     let password = document.getElementById("password").value;
     let passwordError = document.getElementById("password-error");
@@ -40,31 +45,40 @@ document.getElementById("toggle-password").addEventListener("click", function ()
 function login() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
+    let registeredEmail = localStorage.getItem("email") || null;
+    let registeredDoctorEmail = localStorage.getItem("doctoremail") || null;
+    let registeredPassword = localStorage.getItem("password") || null;
+    let registeredDoctorPassword = localStorage.getItem("doctorpassword") || null; // 
 
-    let registeredEmail = localStorage.getItem("email");
-    let registeredPassword = localStorage.getItem("password");
-
-    console.log("Email entered:", email);
-    console.log("Password entered:", password);
+    console.log("Email:", email);
+    console.log("Password:", password);
     console.log("Registered email:", registeredEmail);
+    console.log("Registered doctor email:", registeredDoctorEmail);
     console.log("Registered password:", registeredPassword);
+    console.log("Registered doctor password:", registeredDoctorPassword);
 
-    if (email === 'doctor@gmail.com' && password === '12345678') {
+    // ตรวจสอบว่ามีบัญชีที่ลงทะเบียนหรือไม่
+    if (!registeredEmail && !registeredDoctorEmail) {
+        alert("ไม่มีบัญชีที่ลงทะเบียนในระบบ กรุณาลงทะเบียนใหม่");
+        window.location.href = "../Register/Register.html";
+        return;
+    }
+
+    // เช็คข้อมูลเข้าสู่ระบบ
+    if (email === registeredDoctorEmail && password === registeredDoctorPassword) {
         console.log("Doctor login successful");
         localStorage.setItem("accountType", "doctor");
         alert("ยินดีต้อนรับสู่ระบบแพทย์");
         window.location.href = "../../สัตวแพทย์/Main/Main.html";
     } else if (email === registeredEmail && password === registeredPassword) {
         console.log("User login successful");
+        localStorage.setItem("accountType", "user");
         alert("ยินดีต้อนรับสู่ระบบ");
         window.location.href = "../../User/Main/Main.html";
-    } else if (email !== registeredEmail) {
-        console.log("No registered account found");
-        alert("ไม่มีบัญชีที่ลงทะเบียนในระบบ กรุณาลงทะเบียนใหม่");
-        window.location.href = "../Register/Register.html";
     } else {
-        console.log("Incorrect password");
-        alert("รหัสผ่านไม่ถูกต้อง");
+        console.log("Incorrect email or password");
+        alert("อีเมลหรือรหัสผ่านไม่ถูกต้อง");
         document.getElementById("password").value = "";
     }
 }
+

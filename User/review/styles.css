@@ -210,7 +210,7 @@ li a{
     display: block;
     font-size: 40px;
     margin-top: -80px;
-    margin-left: 360px;
+    margin-left: 560px;
 }
 .detail-review{
     background: #ffff;
@@ -220,13 +220,13 @@ li a{
     text-align: left;
     width: 400px;
     height: 40px;
-    margin-left: 370px;
-    margin-top: -180px;
+    margin-left: 550px;
+    margin-top: -150px;
 }
 .review-day{
     font-size:24px;
-    margin-left: 950px;
-    margin-top: -110px;
+    margin-left: 1100px;
+    margin-top: -50px;
 }
 .rate-score{
     font-size: 30px;
