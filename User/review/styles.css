@@ -201,6 +201,8 @@ li a{
     border-radius: 20px;
     display: grid;
     place-content: start;
+    margin-top: 20px;
+    
 }
 .review-container-grid{
     display: grid;
