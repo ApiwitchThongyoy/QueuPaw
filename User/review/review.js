@@ -72,9 +72,9 @@ function displayReview(review) {
             <div class="title_review">${username}</div>
             <div class="review-star">${"⭐".repeat(stars)}</div>
             <div class="rate-score">${stars}</div>
+            <div class="detail-review">${reviewText}</div>
+            <div class="review-day">${reviewDate}</div>
         </div>
-        <div class="detail-review">${reviewText}</div>
-        <div class="review-day">${reviewDate}</div>
     `;
 
     reviewContainer.prepend(reviewDiv); // แสดงรีวิวใหม่ที่ด้านบน
